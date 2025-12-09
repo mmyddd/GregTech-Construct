@@ -6,7 +6,6 @@ on:
 #  pull_request:
 #    branches: ["main"]
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,10 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up JetBrains Runtime (JBR)
-      uses: DeLaGuardo/setup-jbr@v1
+    - name: Set up JDK
+      uses: actions/setup-java@v4
       with:
-        jbr-version: '17'
+        distribution: 'temurin'
+        java-version: '17'
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
@@ -50,6 +50,6 @@ jobs:
     - name: Upload JAR file
       uses: actions/upload-artifact@v4
       with:
-        name: TConstruct-Modern
+        name: GregTech-Construct
         path: build/libs/*.jar
         compression-level: 0
