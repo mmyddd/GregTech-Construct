@@ -7,7 +7,7 @@ license="MIT"
 [[mods]]
     modId="tconstruct"
     version="${version}"
-    displayName="Tinkers' Construct-Modern"
+    displayName="GregTech-Construct"
 
     authors="Slime Knights & mmyddd"
     description='''

@@ -95,7 +95,7 @@ public final class GTConstructRecipeType {
           .outputItems(getToolStack(toolPartStack.asItem(), outputMaterial))
           .duration(duration)
           .EUt(VA[voltage])
-          .inputFluids(fluidInput)
+          .inputFluids(FluidIngredient.of(fluidInput))
           .notConsumable(cast)
           .save(provider);
       }
@@ -122,7 +122,7 @@ public final class GTConstructRecipeType {
           .outputItems(getToolStack(toolPartStack, outputMaterial))
           .duration(duration)
           .EUt(VA[voltage])
-          .inputFluids(fluidInput)
+          .inputFluids(FluidIngredient.of(fluidInput))
           .notConsumable(cast)
           .save(provider);
       }
