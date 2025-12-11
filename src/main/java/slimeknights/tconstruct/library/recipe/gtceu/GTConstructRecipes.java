@@ -32,10 +32,7 @@ public class GTConstructRecipes {
   );
 
   public static void register(Consumer<FinishedRecipe> provider) {
-    LOGGER.info("Starting recipe generation for Tinkers' Construct fluids...");
     Map<ResourceLocation, Fluid> tinkersFluids = GTConstructFluid.getAllTinkersFluids();
-    int totalFluids = tinkersFluids.size();
-    int skippedFluids = 0;
 
     registerSpecialRecipes(provider);
 
@@ -54,8 +51,6 @@ public class GTConstructRecipes {
       String materialName = GTConstructFluid.extractMaterialName(fluidPath);
 
       if (FLUID_BLACKLIST.contains(materialName)) {
-        LOGGER.debug("Skipping blacklisted fluid: {} (material: {})", fluidId, materialName);
-        skippedFluids++;
         continue;
       }
 
