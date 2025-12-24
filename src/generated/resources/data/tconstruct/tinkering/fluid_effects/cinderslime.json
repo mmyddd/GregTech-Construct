@@ -35,6 +35,6 @@
   ],
   "fluid": {
     "amount": 32,
-    "fluid": "tconstruct:cinderslime"
+    "tag": "tconstruct:cinderslime"
   }
 }

@@ -666,10 +666,10 @@
   "fluid.tconstruct.flowing_tin": "流動的熔融錫",
   "item.tconstruct.tin_bucket": "熔融錫桶",
 
-  "block.tconstruct.aluminium_fluid": "熔融鋁",
-  "fluid.tconstruct.aluminium": "熔融鋁",
-  "fluid.tconstruct.flowing_aluminium": "流動的熔融鋁",
-  "item.tconstruct.aluminium_bucket": "熔融鋁桶",
+  "block.tconstruct.aluminum_fluid": "熔融鋁",
+  "fluid.tconstruct.aluminum": "熔融鋁",
+  "fluid.tconstruct.flowing_aluminum": "流動的熔融鋁",
+  "item.tconstruct.aluminum_bucket": "熔融鋁桶",
 
   "block.tconstruct.lead_fluid": "熔融鉛",
   "fluid.tconstruct.lead": "熔融鉛",
@@ -1652,9 +1652,9 @@
   "material.tconstruct.whitestone.flavor": "拿走你那些毫無用處的白色金屬和石頭，做個有用的工具吧",
   "material.tconstruct.whitestone.encyclopedia": "挖掘石頭時有機率石盾+3，每級機率+20%。",
 
-  "material.tconstruct.aluminium": "鋁",
-  "material.tconstruct.aluminium.flavor": "前代奢侈品，現代尋常物",
-  "material.tconstruct.aluminium.ranged": "拉弓速度+7%，精確度+7%。",
+  "material.tconstruct.aluminum": "鋁",
+  "material.tconstruct.aluminum.flavor": "前代奢侈品，現代尋常物",
+  "material.tconstruct.aluminum.ranged": "拉弓速度+7%，精確度+7%。",
 
 
   "__comment": "Tier 3 Integration Materials",

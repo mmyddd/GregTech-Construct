@@ -3,6 +3,7 @@ package slimeknights.tconstruct.library.recipe.gtceu;
 import com.gregtechceu.gtceu.api.recipe.ingredient.FluidIngredient;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.level.material.Fluid;
@@ -22,14 +23,16 @@ import static com.gregtechceu.gtceu.api.GTValues.*;
 
 public final class GTConstructRecipeType {
 
-  private GTConstructRecipeType() {} // 防止实例化
+  private GTConstructRecipeType() {}
 
-  public static final DynamicRecipeBuilder builder() {
+  public static DynamicRecipeBuilder builder() {
     return new DynamicRecipeBuilder();
   }
 
   public static class DynamicRecipeBuilder {
     private Fluid inputFluid;
+
+    private TagKey<Fluid> inputFluidTag;
     private MaterialId baseMaterial;
     private MaterialVariantId outputMaterial;
     private int voltage = LV;
@@ -38,7 +41,16 @@ public final class GTConstructRecipeType {
 
     private DynamicRecipeBuilder() {}
 
-    public DynamicRecipeBuilder inputFluids(Fluid fluid) { this.inputFluid = fluid; return this; }
+    public DynamicRecipeBuilder inputFluids(Fluid fluid) {
+      this.inputFluid = fluid;
+      return this;
+    }
+
+    public DynamicRecipeBuilder inputFluidTag(TagKey<Fluid> tag) {
+      this.inputFluidTag = tag;
+      return this;
+    }
+
     public DynamicRecipeBuilder baseMaterial(MaterialId material) { this.baseMaterial = material; return this; }
     public DynamicRecipeBuilder outputMaterial(MaterialVariantId material) { this.outputMaterial = material; return this; }
     public DynamicRecipeBuilder voltage(int voltageTier) { this.voltage = voltageTier; if (voltageTier > LV) { this.useVacuum = true; } return this; }
@@ -47,7 +59,9 @@ public final class GTConstructRecipeType {
     public DynamicRecipeBuilder inSolidifier() { this.useVacuum = false; return this; }
 
     public void register(Consumer<FinishedRecipe> provider) {
-      if (inputFluid == null || outputMaterial == null) { throw new IllegalStateException("InputFluid and OutputMaterial must be set!"); }
+      if (inputFluid == null && inputFluidTag == null || outputMaterial == null) {
+        throw new IllegalStateException("InputFluid (or Tag) and OutputMaterial must be set!");
+      }
 
       String recipeTypeName = useVacuum ? "vacuum_freeze" : "solidify";
 
@@ -71,15 +85,29 @@ public final class GTConstructRecipeType {
       registerArmorPart(provider, TinkerToolParts.plating.get(ArmorItem.Type.CHESTPLATE), 6, TinkerSmeltery.chestplatePlatingCast, "chestplate_plating", recipeTypeName);
       registerArmorPart(provider, TinkerToolParts.plating.get(ArmorItem.Type.LEGGINGS), 5, TinkerSmeltery.leggingsPlatingCast, "leggings_plating", recipeTypeName);
       registerArmorPart(provider, TinkerToolParts.plating.get(ArmorItem.Type.BOOTS), 2, TinkerSmeltery.bootsPlatingCast, "boots_plating", recipeTypeName);
+
       registerPart(provider, TinkerToolParts.maille, 2, TinkerSmeltery.mailleCast, "maille", recipeTypeName);
     }
 
     private void registerPart(Consumer<FinishedRecipe> provider, ItemObject<?> toolPartStack, int materialCost, CastItemObject cast, String path, String recipeTypeName) {
-      FluidStack fluidInput = new FluidStack(inputFluid, materialCost * L);
+      FluidIngredient ingredient;
+      int amount = materialCost * L;
+
+      if (this.inputFluidTag != null) {
+        ingredient = FluidIngredient.of(this.inputFluidTag, amount);
+      } else {
+        ingredient = FluidIngredient.of(new FluidStack(this.inputFluid, amount));
+      }
+
       int duration = materialCost * durationMultiplier * 20;
 
       var recipeType = useVacuum ? GTRecipeTypes.VACUUM_RECIPES : GTRecipeTypes.FLUID_SOLIDFICATION_RECIPES;
-      String recipePath = recipeTypeName + "_" + ForgeRegistries.FLUIDS.getKey(inputFluid).getPath() + "_to_" + path;
+
+      String fluidNamePath = (this.inputFluid != null)
+        ? ForgeRegistries.FLUIDS.getKey(this.inputFluid).getPath()
+        : this.inputFluidTag.location().getPath();
+
+      String recipePath = recipeTypeName + "_" + fluidNamePath + "_to_" + path;
 
       if (baseMaterial != null) {
         MaterialVariantId baseMaterialVariantId = MaterialVariantId.tryParse(baseMaterial.toString());
@@ -87,7 +115,7 @@ public final class GTConstructRecipeType {
           .outputItems(getToolStack(toolPartStack.asItem(), outputMaterial))
           .duration(duration)
           .EUt(VA[voltage])
-          .inputFluids(FluidIngredient.of(fluidInput))
+          .inputFluids(ingredient)
           .inputItems(getToolStack(toolPartStack.asItem(), baseMaterialVariantId))
           .save(provider);
       } else {
@@ -95,18 +123,31 @@ public final class GTConstructRecipeType {
           .outputItems(getToolStack(toolPartStack.asItem(), outputMaterial))
           .duration(duration)
           .EUt(VA[voltage])
-          .inputFluids(fluidInput)
+          .inputFluids(ingredient)
           .notConsumable(cast)
           .save(provider);
       }
     }
 
     private void registerArmorPart(Consumer<FinishedRecipe> provider, ToolPartItem toolPartStack, int materialCost, CastItemObject cast, String path, String recipeTypeName) {
-      FluidStack fluidInput = new FluidStack(inputFluid, materialCost * L);
+      FluidIngredient ingredient;
+      int amount = materialCost * L;
+
+      if (this.inputFluidTag != null) {
+        ingredient = FluidIngredient.of(this.inputFluidTag, amount);
+      } else {
+        ingredient = FluidIngredient.of(new FluidStack(this.inputFluid, amount));
+      }
+
       int duration = materialCost * durationMultiplier * 20;
 
       var recipeType = useVacuum ? GTRecipeTypes.VACUUM_RECIPES : GTRecipeTypes.FLUID_SOLIDFICATION_RECIPES;
-      String recipePath = recipeTypeName + "_" + ForgeRegistries.FLUIDS.getKey(inputFluid).getPath() + "_to_" + path;
+
+      String fluidNamePath = (this.inputFluid != null)
+        ? ForgeRegistries.FLUIDS.getKey(this.inputFluid).getPath()
+        : this.inputFluidTag.location().getPath();
+
+      String recipePath = recipeTypeName + "_" + fluidNamePath + path;
 
       if (baseMaterial != null) {
         MaterialVariantId baseMaterialVariantId = MaterialVariantId.tryParse(baseMaterial.toString());
@@ -114,7 +155,7 @@ public final class GTConstructRecipeType {
           .outputItems(getToolStack(toolPartStack, outputMaterial))
           .duration(duration)
           .EUt(VA[voltage])
-          .inputFluids(FluidIngredient.of(fluidInput))
+          .inputFluids(ingredient)
           .inputItems(getToolStack(toolPartStack, baseMaterialVariantId))
           .save(provider);
       } else {
@@ -122,7 +163,7 @@ public final class GTConstructRecipeType {
           .outputItems(getToolStack(toolPartStack, outputMaterial))
           .duration(duration)
           .EUt(VA[voltage])
-          .inputFluids(fluidInput)
+          .inputFluids(ingredient)
           .notConsumable(cast)
           .save(provider);
       }

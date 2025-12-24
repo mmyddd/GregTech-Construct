@@ -7,7 +7,7 @@
   "cooling_time": 68,
   "fluid": {
     "amount": 144,
-    "fluid": "tconstruct:cinderslime"
+    "tag": "tconstruct:cinderslime"
   },
   "result": {
     "tag": "forge:ingots/cinderslime"

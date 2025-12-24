@@ -13,8 +13,10 @@
     "#forge:manyullyn",
     "#forge:hepatizon",
     "#tconstruct:queens_slime",
+    "#tconstruct:cinderslime",
     "#forge:netherite",
     "#tconstruct:soulsteel",
+    "#tconstruct:knightmetal",
     "#tconstruct:knightslime",
     "#forge:tin",
     "#forge:aluminium",
@@ -26,6 +28,8 @@
     "#forge:tungsten",
     "#forge:osmium",
     "#forge:uranium",
+    "#forge:chromium",
+    "#forge:cadmium",
     "#forge:bronze",
     "#forge:brass",
     "#forge:electrum",
@@ -37,8 +41,10 @@
     "#forge:signalum",
     "#forge:refined_glowstone",
     "#forge:refined_obsidian",
-    "#forge:nichrome",
+    "#forge:nicrosil",
     "#forge:duralumin",
+    "#forge:bendalloy",
+    "#tconstruct:steeleaf",
     "tconstruct:cinderslime"
   ]
 }

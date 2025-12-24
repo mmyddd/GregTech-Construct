@@ -12,13 +12,13 @@
     {
       "type": "mantle:tag_filled",
       "registry": "minecraft:fluid",
-      "tag": "forge:dawnstone"
+      "tag": "forge:molten_dawnstone"
     }
   ],
   "cooling_time": 63,
   "fluid": {
     "amount": 144,
-    "tag": "forge:dawnstone"
+    "tag": "forge:molten_dawnstone"
   },
   "result": {
     "tag": "forge:ingots/dawnstone"

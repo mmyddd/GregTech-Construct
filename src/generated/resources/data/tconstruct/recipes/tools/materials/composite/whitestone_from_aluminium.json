@@ -11,6 +11,6 @@
     "tag": "forge:aluminium"
   },
   "input": "tconstruct:rock",
-  "output": "tconstruct:whitestone#aluminium",
+  "output": "tconstruct:whitestone#composite",
   "temperature": 425
 }

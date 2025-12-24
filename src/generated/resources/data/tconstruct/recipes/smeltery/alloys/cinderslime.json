@@ -7,7 +7,7 @@
     },
     {
       "amount": 400,
-      "fluid": "tconstruct:ichor"
+      "tag": "tconstruct:ichor"
     },
     {
       "amount": 400,
