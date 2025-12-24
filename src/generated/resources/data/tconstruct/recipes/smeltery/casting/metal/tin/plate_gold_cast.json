@@ -12,7 +12,7 @@
   "cooling_time": 48,
   "fluid": {
     "amount": 216,
-    "tag": "forge:molten_tin"
+    "tag": "forge:tin"
   },
   "result": {
     "tag": "forge:plates/tin"

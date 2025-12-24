@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 144,
-    "tag": "forge:molten_cadmium"
+    "tag": "forge:cadmium"
   },
   "input": "tconstruct:rock",
   "output": "tconstruct:whitestone#composite",

@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 144,
-    "tag": "forge:molten_aluminum"
+    "tag": "forge:aluminium"
   },
   "output": "tconstruct:aluminum",
   "temperature": 425

@@ -7,7 +7,7 @@
   "cooling_time": 75,
   "fluid": {
     "amount": 144,
-    "tag": "tconstruct:molten_knightmetal"
+    "tag": "tconstruct:knightmetal"
   },
   "result": {
     "tag": "forge:ingots/knightmetal"

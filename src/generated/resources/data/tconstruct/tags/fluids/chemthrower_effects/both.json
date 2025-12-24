@@ -5,10 +5,10 @@
     "#tconstruct:ichor",
     "#tconstruct:ender_slime",
     "#tconstruct:magma",
-    "#tconstruct:molten_ender",
-    "#tconstruct:molten_slimesteel",
-    "#tconstruct:molten_queens_slime",
-    "#tconstruct:molten_cinderslime",
-    "#tconstruct:molten_signalum"
+    "#tconstruct:ender",
+    "#tconstruct:slimesteel",
+    "#tconstruct:queens_slime",
+    "#tconstruct:cinderslime",
+    "#tconstruct:signalum"
   ]
 }

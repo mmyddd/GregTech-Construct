@@ -12,7 +12,7 @@
   "cooling_time": 33,
   "fluid": {
     "amount": 144,
-    "tag": "forge:molten_bendalloy"
+    "tag": "forge:bendalloy"
   },
   "result": {
     "tag": "forge:ingots/bendalloy"

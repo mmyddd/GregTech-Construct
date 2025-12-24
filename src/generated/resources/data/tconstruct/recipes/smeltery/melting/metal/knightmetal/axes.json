@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 432,
-    "fluid": "tconstruct:molten_knightmetal",
+    "fluid": "tconstruct:knightmetal",
     "unit_size": 16
   },
   "temperature": 1300,

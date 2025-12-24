@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 144,
-    "tag": "forge:molten_chromium"
+    "tag": "forge:chromium"
   },
   "input": "tconstruct:rock",
   "output": "tconstruct:whitestone#composite",

@@ -2,6 +2,7 @@ package slimeknights.tconstruct.library.recipe.gtceu;
 
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.ForgeRegistries;
 import slimeknights.tconstruct.TConstruct;
@@ -27,8 +28,8 @@ public class GTConstructRecipes {
     "venom", "honey", "potion", "beetroot_soup", "mushroom_stew", "rabbit_stew", "meat_soup", "powdered_snow",
     "knightslime", "ichor", "magma","signalum","duralumin","refined_glowstone",
     "quartz", "debris", "clay", "glass", "liquid_soul", "obsidian", "ender",
-    "emerald", "amethyst", "diamond", "nichrome", "soulsteel","refined_obsidian",
-    "netherite", "tin", "zinc", "nickel", "brass", "porcelain", "uranium", "enderium", "lumium"
+    "emerald", "amethyst", "diamond", "nichrome", "soulsteel","refined_obsidian","fiery_liquid","cadmium","steeleaf",
+    "netherite", "tin", "zinc", "nickel", "brass", "porcelain", "uranium", "enderium", "lumium","platinum","tungsten","chrominum","bendalloy","aluminium","nicrosil"
   );
 
   public static void register(Consumer<FinishedRecipe> provider) {
@@ -40,6 +41,7 @@ public class GTConstructRecipes {
       TinkerFluids.skySlime.get(),
       TinkerFluids.enderSlime.get(),
       TinkerFluids.earthSlime.get(),
+      TinkerFluids.moltenPlatinum.get(),
       TinkerFluids.blazingBlood.get()
     );
 
@@ -58,10 +60,8 @@ public class GTConstructRecipes {
         continue;
       }
 
-
       generateStandardSolidifierRecipes(provider, fluid);
     }
-
   }
 
   private static void registerSpecialRecipes(Consumer<FinishedRecipe> provider) {
@@ -98,12 +98,55 @@ public class GTConstructRecipes {
   }
 
   private static void generateStandardSolidifierRecipes(Consumer<FinishedRecipe> provider, Fluid fluid) {
+    TagKey<Fluid> fluidTag = GTConstructFluid.getAutoTag(fluid);
     String materialName = GTConstructFluid.extractMaterialName(ForgeRegistries.FLUIDS.getKey(fluid).getPath());
     MaterialVariantId outputMaterialVariantId = MaterialVariantId.tryParse(TConstruct.MOD_ID + ":" + materialName);
 
     GTConstructRecipeType.builder()
-      .inputFluids(fluid)
+      .inputFluidTag(fluidTag)
       .outputMaterial(outputMaterialVariantId)
+      .voltage(LV)
+      .register(provider);
+
+    GTConstructRecipeType.builder()
+      .inputFluids(TinkerFluids.scorchedStone.get())
+      .outputMaterial(MaterialIds.scorchedStone)
+      .voltage(LV)
+      .register(provider);
+
+    GTConstructRecipeType.builder()
+      .inputFluids(TinkerFluids.searedStone.get())
+      .outputMaterial(MaterialIds.searedStone)
+      .voltage(LV)
+      .register(provider);
+
+    GTConstructRecipeType.builder()
+      .inputFluids(TinkerFluids.moltenPigIron.get())
+      .outputMaterial(MaterialIds.pigIron)
+      .voltage(LV)
+      .register(provider);
+
+    GTConstructRecipeType.builder()
+      .inputFluids(TinkerFluids.moltenCinderslime.get())
+      .outputMaterial(MaterialIds.cinderslime)
+      .voltage(LV)
+      .register(provider);
+
+    GTConstructRecipeType.builder()
+      .inputFluids(TinkerFluids.moltenSlimesteel.get())
+      .outputMaterial(MaterialIds.slimesteel)
+      .voltage(LV)
+      .register(provider);
+
+    GTConstructRecipeType.builder()
+      .inputFluids(TinkerFluids.moltenQueensSlime.get())
+      .outputMaterial(MaterialIds.queensSlime)
+      .voltage(LV)
+      .register(provider);
+
+    GTConstructRecipeType.builder()
+      .inputFluids(TinkerFluids.moltenKnightmetal.get())
+      .outputMaterial(MaterialIds.knightmetal)
       .voltage(LV)
       .register(provider);
   }

@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 144,
-      "tag": "forge:molten_gold"
+      "tag": "forge:gold"
     }
   ],
   "conditions": [
@@ -17,7 +17,7 @@
   },
   "result": {
     "amount": 1296,
-    "tag": "forge:molten_iron"
+    "tag": "forge:iron"
   },
   "temperature": 800,
   "time": 180

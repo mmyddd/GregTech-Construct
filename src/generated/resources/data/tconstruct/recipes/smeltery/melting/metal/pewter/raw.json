@@ -20,7 +20,7 @@
           {
             "amount": 144,
             "rate": "metal",
-            "tag": "forge:molten_tin"
+            "tag": "forge:tin"
           }
         ],
         "ingredient": {
@@ -29,7 +29,7 @@
         "rate": "metal",
         "result": {
           "amount": 144,
-          "tag": "forge:molten_pewter"
+          "tag": "forge:pewter"
         },
         "temperature": 400,
         "time": 69
@@ -48,7 +48,7 @@
           {
             "amount": 144,
             "rate": "metal",
-            "tag": "forge:molten_lead"
+            "tag": "forge:lead"
           }
         ],
         "ingredient": {
@@ -57,7 +57,7 @@
         "rate": "metal",
         "result": {
           "amount": 144,
-          "tag": "forge:molten_pewter"
+          "tag": "forge:pewter"
         },
         "temperature": 400,
         "time": 69
@@ -75,7 +75,7 @@
           {
             "amount": 144,
             "rate": "metal",
-            "tag": "forge:molten_iron"
+            "tag": "forge:iron"
           }
         ],
         "ingredient": {
@@ -84,7 +84,7 @@
         "rate": "metal",
         "result": {
           "amount": 144,
-          "tag": "forge:molten_pewter"
+          "tag": "forge:pewter"
         },
         "temperature": 400,
         "time": 69

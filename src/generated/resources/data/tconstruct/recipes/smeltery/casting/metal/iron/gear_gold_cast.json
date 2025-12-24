@@ -12,7 +12,7 @@
   "cooling_time": 190,
   "fluid": {
     "amount": 1440,
-    "tag": "forge:molten_iron"
+    "tag": "forge:iron"
   },
   "result": {
     "tag": "forge:gears/iron"

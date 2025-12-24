@@ -20,7 +20,7 @@
           {
             "amount": 144,
             "rate": "metal",
-            "tag": "forge:molten_cadmium"
+            "tag": "forge:cadmium"
           }
         ],
         "ingredient": {
@@ -29,7 +29,7 @@
         "rate": "metal",
         "result": {
           "amount": 144,
-          "tag": "forge:molten_bendalloy"
+          "tag": "forge:bendalloy"
         },
         "temperature": 100,
         "time": 50
@@ -49,7 +49,7 @@
         "rate": "metal",
         "result": {
           "amount": 144,
-          "tag": "forge:molten_bendalloy"
+          "tag": "forge:bendalloy"
         },
         "temperature": 100,
         "time": 50

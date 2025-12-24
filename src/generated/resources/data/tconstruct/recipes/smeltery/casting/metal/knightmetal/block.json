@@ -3,7 +3,7 @@
   "cooling_time": 225,
   "fluid": {
     "amount": 1296,
-    "tag": "tconstruct:molten_knightmetal"
+    "tag": "tconstruct:knightmetal"
   },
   "result": {
     "tag": "forge:storage_blocks/knightmetal"

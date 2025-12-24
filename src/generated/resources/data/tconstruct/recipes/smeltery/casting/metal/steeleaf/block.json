@@ -9,7 +9,7 @@
   "cooling_time": 193,
   "fluid": {
     "amount": 1296,
-    "tag": "tconstruct:molten_steeleaf"
+    "tag": "tconstruct:steeleaf"
   },
   "result": {
     "tag": "forge:storage_blocks/steeleaf"

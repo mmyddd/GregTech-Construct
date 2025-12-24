@@ -13,7 +13,7 @@
   "cooling_time": 78,
   "fluid": {
     "amount": 216,
-    "tag": "forge:molten_constantan"
+    "tag": "forge:constantan"
   },
   "result": {
     "tag": "forge:plates/constantan"

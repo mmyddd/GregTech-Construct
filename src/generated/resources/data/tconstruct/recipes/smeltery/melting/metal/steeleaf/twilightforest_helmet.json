@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 720,
-    "fluid": "tconstruct:molten_steeleaf",
+    "fluid": "tconstruct:steeleaf",
     "unit_size": 16
   },
   "temperature": 934,

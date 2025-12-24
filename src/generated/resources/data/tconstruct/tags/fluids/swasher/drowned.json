@@ -2,7 +2,7 @@
   "values": [
     "minecraft:lava",
     "tconstruct:powdered_snow",
-    "tconstruct:molten_glass",
-    "tconstruct:molten_obsidian"
+    "tconstruct:glass",
+    "tconstruct:obsidian"
   ]
 }

@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 144,
-    "tag": "tconstruct:molten_steeleaf"
+    "tag": "tconstruct:steeleaf"
   },
   "output": "tconstruct:steeleaf",
   "temperature": 934

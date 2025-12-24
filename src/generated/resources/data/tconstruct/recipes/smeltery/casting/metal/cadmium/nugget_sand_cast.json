@@ -13,7 +13,7 @@
   "cooling_time": 14,
   "fluid": {
     "amount": 16,
-    "tag": "forge:molten_cadmium"
+    "tag": "forge:cadmium"
   },
   "result": {
     "tag": "forge:nuggets/cadmium"

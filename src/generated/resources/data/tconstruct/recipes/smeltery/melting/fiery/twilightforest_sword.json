@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 288,
-      "tag": "forge:molten_iron",
+      "tag": "forge:iron",
       "unit_size": 16
     }
   ],

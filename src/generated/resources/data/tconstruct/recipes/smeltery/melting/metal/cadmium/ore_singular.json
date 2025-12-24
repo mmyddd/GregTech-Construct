@@ -21,7 +21,7 @@
           {
             "amount": 288,
             "rate": "metal",
-            "tag": "forge:molten_lead"
+            "tag": "forge:lead"
           }
         ],
         "ingredient": {
@@ -36,7 +36,7 @@
         "rate": "metal",
         "result": {
           "amount": 288,
-          "tag": "forge:molten_cadmium"
+          "tag": "forge:cadmium"
         },
         "temperature": 294,
         "time": 105
@@ -54,7 +54,7 @@
           {
             "amount": 288,
             "rate": "metal",
-            "tag": "forge:molten_copper"
+            "tag": "forge:copper"
           }
         ],
         "ingredient": {
@@ -69,7 +69,7 @@
         "rate": "metal",
         "result": {
           "amount": 288,
-          "tag": "forge:molten_cadmium"
+          "tag": "forge:cadmium"
         },
         "temperature": 294,
         "time": 105

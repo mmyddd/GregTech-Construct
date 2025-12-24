@@ -13,7 +13,7 @@
   "cooling_time": 21,
   "fluid": {
     "amount": 16,
-    "tag": "tconstruct:molten_steeleaf"
+    "tag": "tconstruct:steeleaf"
   },
   "result": {
     "tag": "forge:nuggets/steeleaf"
