@@ -21,7 +21,7 @@
   ],
   "inputs": [
     {
-      "amount": 144,
+      "amount": 432,
       "tag": "forge:copper"
     },
     {
@@ -30,7 +30,7 @@
     }
   ],
   "result": {
-    "amount": 288,
+    "amount": 576,
     "tag": "forge:brass"
   },
   "temperature": 605
