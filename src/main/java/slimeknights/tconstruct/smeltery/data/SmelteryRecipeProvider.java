@@ -1848,10 +1848,10 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
                       .save(consumer, prefix(TinkerFluids.moltenAmethystBronze, folder));
 
     // rose gold: 1 copper + 1 gold = 2
-    AlloyRecipeBuilder.alloy(TinkerFluids.moltenRoseGold, FluidValues.INGOT * 2)
-                      .addInput(TinkerFluids.moltenCopper.ingredient(FluidValues.INGOT))
-                      .addInput(TinkerFluids.moltenGold.ingredient(FluidValues.INGOT))
-                      .save(consumer, prefix(TinkerFluids.moltenRoseGold, folder));
+    //AlloyRecipeBuilder.alloy(TinkerFluids.moltenRoseGold, FluidValues.INGOT * 2)
+    //                  .addInput(TinkerFluids.moltenCopper.ingredient(FluidValues.INGOT))
+    //                  .addInput(TinkerFluids.moltenGold.ingredient(FluidValues.INGOT))
+    //                  .save(consumer, prefix(TinkerFluids.moltenRoseGold, folder));
     // pig iron: 1 iron + 2 blood + 1 honey = 2
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenPigIron, FluidValues.INGOT * 2)
                       .addInput(TinkerFluids.moltenIron.ingredient(FluidValues.INGOT))
@@ -1922,24 +1922,24 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
 
     // brass
     wrapped = withCondition(consumer, tagCondition("ingots/zinc"), new OrCondition(ConfigEnabledCondition.ALLOW_INGOTLESS_ALLOYS, tagCondition("ingots/brass")));
-    AlloyRecipeBuilder.alloy(TinkerFluids.moltenBrass, FluidValues.INGOT * 2)
-                      .addInput(TinkerFluids.moltenCopper.ingredient(FluidValues.INGOT))
+    AlloyRecipeBuilder.alloy(TinkerFluids.moltenBrass, FluidValues.INGOT * 4)
+                      .addInput(TinkerFluids.moltenCopper.ingredient(FluidValues.INGOT * 3))
                       .addInput(TinkerFluids.moltenZinc.ingredient(FluidValues.INGOT))
                       .save(wrapped, prefix(TinkerFluids.moltenBrass, folder));
 
     // electrum
-    wrapped = withCondition(consumer, tagCondition("ingots/silver"), new OrCondition(ConfigEnabledCondition.ALLOW_INGOTLESS_ALLOYS, tagCondition("ingots/electrum")));
-    AlloyRecipeBuilder.alloy(TinkerFluids.moltenElectrum, FluidValues.INGOT * 2)
-                      .addInput(TinkerFluids.moltenGold.ingredient(FluidValues.INGOT))
-                      .addInput(TinkerFluids.moltenSilver.ingredient(FluidValues.INGOT))
-                      .save(wrapped, prefix(TinkerFluids.moltenElectrum, folder));
+    //wrapped = withCondition(consumer, tagCondition("ingots/silver"), new OrCondition(ConfigEnabledCondition.ALLOW_INGOTLESS_ALLOYS, tagCondition("ingots/electrum")));
+    //AlloyRecipeBuilder.alloy(TinkerFluids.moltenElectrum, FluidValues.INGOT * 2)
+    //                  .addInput(TinkerFluids.moltenGold.ingredient(FluidValues.INGOT))
+    //                  .addInput(TinkerFluids.moltenSilver.ingredient(FluidValues.INGOT))
+    //                  .save(wrapped, prefix(TinkerFluids.moltenElectrum, folder));
 
     // invar
-    wrapped = withCondition(consumer, tagCondition("ingots/nickel"), new OrCondition(ConfigEnabledCondition.ALLOW_INGOTLESS_ALLOYS, tagCondition("ingots/invar")));
-    AlloyRecipeBuilder.alloy(TinkerFluids.moltenInvar, FluidValues.INGOT * 3)
-                      .addInput(TinkerFluids.moltenIron.ingredient(FluidValues.INGOT * 2))
-                      .addInput(TinkerFluids.moltenNickel.ingredient(FluidValues.INGOT))
-                      .save(wrapped, prefix(TinkerFluids.moltenInvar, folder));
+    //wrapped = withCondition(consumer, tagCondition("ingots/nickel"), new OrCondition(ConfigEnabledCondition.ALLOW_INGOTLESS_ALLOYS, tagCondition("ingots/invar")));
+    //AlloyRecipeBuilder.alloy(TinkerFluids.moltenInvar, FluidValues.INGOT * 3)
+    //                  .addInput(TinkerFluids.moltenIron.ingredient(FluidValues.INGOT * 2))
+    //                  .addInput(TinkerFluids.moltenNickel.ingredient(FluidValues.INGOT))
+    //                  .save(wrapped, prefix(TinkerFluids.moltenInvar, folder));
 
     // constantan
     wrapped = withCondition(consumer, tagCondition("ingots/nickel"), new OrCondition(ConfigEnabledCondition.ALLOW_INGOTLESS_ALLOYS, tagCondition("ingots/constantan")));
