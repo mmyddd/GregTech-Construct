@@ -6,7 +6,7 @@
   "cooling_time": 216,
   "fluid": {
     "amount": 1600,
-    "tag": "tconstruct:amethyst"
+    "tag": "tconstruct:molten_amethyst"
   },
   "result": {
     "tag": "forge:gems/amethyst"

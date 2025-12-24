@@ -8,9 +8,9 @@
   ],
   "fluid": {
     "amount": 144,
-    "tag": "forge:zinc"
+    "tag": "forge:molten_zinc"
   },
   "input": "tconstruct:rock",
-  "output": "tconstruct:whitestone#zinc",
+  "output": "tconstruct:whitestone#composite",
   "temperature": 420
 }

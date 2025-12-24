@@ -23,7 +23,7 @@
           {
             "amount": 864,
             "rate": "metal",
-            "tag": "forge:nickel"
+            "tag": "forge:molten_nickel"
           }
         ],
         "ingredient": {
@@ -40,7 +40,7 @@
         "rate": "metal",
         "result": {
           "amount": 864,
-          "tag": "forge:tin"
+          "tag": "forge:molten_tin"
         },
         "temperature": 225,
         "time": 176
@@ -58,7 +58,7 @@
           {
             "amount": 864,
             "rate": "metal",
-            "tag": "forge:copper"
+            "tag": "forge:molten_copper"
           }
         ],
         "ingredient": {
@@ -75,7 +75,7 @@
         "rate": "metal",
         "result": {
           "amount": 864,
-          "tag": "forge:tin"
+          "tag": "forge:molten_tin"
         },
         "temperature": 225,
         "time": 176

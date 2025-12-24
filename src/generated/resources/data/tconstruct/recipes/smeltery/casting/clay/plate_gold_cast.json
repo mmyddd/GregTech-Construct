@@ -12,7 +12,7 @@
   "cooling_time": 80,
   "fluid": {
     "amount": 400,
-    "tag": "tconstruct:clay"
+    "tag": "tconstruct:molten_clay"
   },
   "result": {
     "tag": "forge:plates/brick"

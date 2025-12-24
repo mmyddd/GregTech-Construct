@@ -18,7 +18,7 @@
   "input": "tconstruct:electrum",
   "result": {
     "amount": 144,
-    "tag": "forge:electrum"
+    "tag": "forge:molten_electrum"
   },
   "temperature": 760
 }

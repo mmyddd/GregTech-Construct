@@ -2,7 +2,7 @@
   "type": "tconstruct:material_fluid",
   "fluid": {
     "amount": 200,
-    "tag": "tconstruct:clay"
+    "tag": "tconstruct:molten_clay"
   },
   "input": "tconstruct:rock",
   "output": "tconstruct:seared_stone",

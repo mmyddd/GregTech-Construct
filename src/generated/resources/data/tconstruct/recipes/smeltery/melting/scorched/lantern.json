@@ -3,11 +3,11 @@
   "byproducts": [
     {
       "amount": 400,
-      "fluid": "tconstruct:quartz"
+      "fluid": "tconstruct:molten_quartz"
     },
     {
       "amount": 48,
-      "tag": "forge:iron"
+      "tag": "forge:molten_iron"
     }
   ],
   "ingredient": {

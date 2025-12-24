@@ -12,7 +12,7 @@
   "cooling_time": 72,
   "fluid": {
     "amount": 216,
-    "tag": "forge:electrum"
+    "tag": "forge:molten_electrum"
   },
   "result": {
     "tag": "forge:plates/electrum"

@@ -7,7 +7,7 @@
     },
     {
       "amount": 4800,
-      "fluid": "tconstruct:quartz"
+      "fluid": "tconstruct:molten_quartz"
     }
   ],
   "ingredient": {
@@ -15,7 +15,7 @@
   },
   "result": {
     "amount": 72,
-    "fluid": "tconstruct:obsidian"
+    "fluid": "tconstruct:molten_obsidian"
   },
   "temperature": 1000,
   "time": 166

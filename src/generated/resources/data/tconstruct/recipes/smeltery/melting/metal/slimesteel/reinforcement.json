@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 36,
-      "fluid": "tconstruct:obsidian"
+      "fluid": "tconstruct:molten_obsidian"
     }
   ],
   "ingredient": {
@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 48,
-    "fluid": "tconstruct:slimesteel"
+    "fluid": "tconstruct:molten_slimesteel"
   },
   "temperature": 900,
   "time": 37

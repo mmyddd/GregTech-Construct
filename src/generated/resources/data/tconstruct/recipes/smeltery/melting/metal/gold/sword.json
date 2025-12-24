@@ -5,7 +5,7 @@
   },
   "result": {
     "amount": 288,
-    "tag": "forge:gold",
+    "tag": "forge:molten_gold",
     "unit_size": 16
   },
   "temperature": 700,

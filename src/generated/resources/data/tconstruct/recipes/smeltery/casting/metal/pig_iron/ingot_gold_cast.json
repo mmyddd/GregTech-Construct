@@ -6,7 +6,7 @@
   "cooling_time": 60,
   "fluid": {
     "amount": 144,
-    "tag": "tconstruct:pig_iron"
+    "tag": "tconstruct:molten_pig_iron"
   },
   "result": {
     "tag": "forge:ingots/pig_iron"

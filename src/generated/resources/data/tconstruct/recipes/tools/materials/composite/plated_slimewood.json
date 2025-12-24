@@ -17,7 +17,7 @@
   ],
   "fluid": {
     "amount": 144,
-    "tag": "forge:brass"
+    "tag": "forge:molten_brass"
   },
   "input": "tconstruct:slimewood",
   "output": "tconstruct:plated_slimewood",

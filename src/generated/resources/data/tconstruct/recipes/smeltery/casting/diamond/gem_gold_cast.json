@@ -6,7 +6,7 @@
   "cooling_time": 263,
   "fluid": {
     "amount": 1600,
-    "tag": "tconstruct:diamond"
+    "tag": "tconstruct:molten_diamond"
   },
   "result": {
     "tag": "forge:gems/diamond"

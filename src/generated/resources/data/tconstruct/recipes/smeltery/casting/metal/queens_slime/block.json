@@ -3,7 +3,7 @@
   "cooling_time": 212,
   "fluid": {
     "amount": 1296,
-    "tag": "tconstruct:queens_slime"
+    "tag": "tconstruct:molten_queens_slime"
   },
   "result": {
     "tag": "forge:storage_blocks/queens_slime"

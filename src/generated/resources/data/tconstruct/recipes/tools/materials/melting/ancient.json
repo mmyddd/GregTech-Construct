@@ -3,7 +3,7 @@
   "input": "tconstruct:ancient",
   "result": {
     "amount": 144,
-    "fluid": "tconstruct:debris"
+    "fluid": "tconstruct:molten_debris"
   },
   "temperature": 1175
 }

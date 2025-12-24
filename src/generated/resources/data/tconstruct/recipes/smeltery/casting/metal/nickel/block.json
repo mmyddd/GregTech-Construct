@@ -9,7 +9,7 @@
   "cooling_time": 194,
   "fluid": {
     "amount": 1296,
-    "tag": "forge:nickel"
+    "tag": "forge:molten_nickel"
   },
   "result": {
     "tag": "forge:storage_blocks/nickel"

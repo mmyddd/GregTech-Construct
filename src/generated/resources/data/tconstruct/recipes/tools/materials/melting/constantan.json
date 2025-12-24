@@ -18,7 +18,7 @@
   "input": "tconstruct:constantan",
   "result": {
     "amount": 144,
-    "tag": "forge:constantan"
+    "tag": "forge:molten_constantan"
   },
   "temperature": 920
 }

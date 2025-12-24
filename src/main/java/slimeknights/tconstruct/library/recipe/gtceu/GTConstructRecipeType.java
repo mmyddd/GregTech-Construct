@@ -66,11 +66,13 @@ public final class GTConstructRecipeType {
       registerPart(provider, TinkerToolParts.largePlate, 4, TinkerSmeltery.largePlateCast, "large_plate", recipeTypeName);
       registerPart(provider, TinkerToolParts.toolHandle, 1, TinkerSmeltery.toolHandleCast, "tool_handle", recipeTypeName);
       registerPart(provider, TinkerToolParts.toughHandle, 3, TinkerSmeltery.toughHandleCast, "tough_handle", recipeTypeName);
+      
 
       registerArmorPart(provider, TinkerToolParts.plating.get(ArmorItem.Type.HELMET), 3, TinkerSmeltery.helmetPlatingCast, "helmet_plating", recipeTypeName);
       registerArmorPart(provider, TinkerToolParts.plating.get(ArmorItem.Type.CHESTPLATE), 6, TinkerSmeltery.chestplatePlatingCast, "chestplate_plating", recipeTypeName);
       registerArmorPart(provider, TinkerToolParts.plating.get(ArmorItem.Type.LEGGINGS), 5, TinkerSmeltery.leggingsPlatingCast, "leggings_plating", recipeTypeName);
       registerArmorPart(provider, TinkerToolParts.plating.get(ArmorItem.Type.BOOTS), 2, TinkerSmeltery.bootsPlatingCast, "boots_plating", recipeTypeName);
+
       registerPart(provider, TinkerToolParts.maille, 2, TinkerSmeltery.mailleCast, "maille", recipeTypeName);
     }
 

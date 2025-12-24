@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 4800,
-      "fluid": "tconstruct:diamond",
+      "fluid": "tconstruct:molten_diamond",
       "rate": "gem"
     }
   ],
@@ -30,7 +30,7 @@
   "rate": "gem",
   "result": {
     "amount": 4800,
-    "fluid": "tconstruct:emerald"
+    "fluid": "tconstruct:molten_emerald"
   },
   "temperature": 934,
   "time": 289

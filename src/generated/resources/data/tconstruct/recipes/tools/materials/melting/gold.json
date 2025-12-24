@@ -3,7 +3,7 @@
   "input": "tconstruct:gold",
   "result": {
     "amount": 144,
-    "tag": "forge:gold"
+    "tag": "forge:molten_gold"
   },
   "temperature": 700
 }

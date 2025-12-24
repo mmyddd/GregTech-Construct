@@ -7,7 +7,7 @@
   "cooling_time": 57,
   "fluid": {
     "amount": 144,
-    "tag": "forge:gold"
+    "tag": "forge:molten_gold"
   },
   "result": "tconstruct:gold_reinforcement"
 }

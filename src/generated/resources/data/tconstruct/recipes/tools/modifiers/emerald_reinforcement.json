@@ -7,7 +7,7 @@
   "cooling_time": 107,
   "fluid": {
     "amount": 400,
-    "tag": "tconstruct:emerald"
+    "tag": "tconstruct:molten_emerald"
   },
   "result": "tconstruct:emerald_reinforcement"
 }

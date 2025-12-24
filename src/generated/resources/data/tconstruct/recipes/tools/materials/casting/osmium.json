@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 144,
-    "tag": "forge:osmium"
+    "tag": "forge:molten_osmium"
   },
   "output": "tconstruct:osmium",
   "temperature": 975

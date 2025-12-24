@@ -13,7 +13,7 @@
   "cooling_time": 73,
   "fluid": {
     "amount": 216,
-    "tag": "forge:silver"
+    "tag": "forge:molten_silver"
   },
   "result": {
     "tag": "forge:plates/silver"

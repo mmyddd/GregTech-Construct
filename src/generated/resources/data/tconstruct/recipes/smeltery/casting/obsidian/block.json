@@ -3,7 +3,7 @@
   "cooling_time": 66,
   "fluid": {
     "amount": 144,
-    "tag": "tconstruct:obsidian"
+    "tag": "tconstruct:molten_obsidian"
   },
   "result": "minecraft:obsidian"
 }

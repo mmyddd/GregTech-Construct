@@ -13,7 +13,7 @@
   "cooling_time": 577,
   "fluid": {
     "amount": 16000,
-    "tag": "tconstruct:quartz"
+    "tag": "tconstruct:molten_quartz"
   },
   "result": {
     "tag": "forge:gears/quartz"

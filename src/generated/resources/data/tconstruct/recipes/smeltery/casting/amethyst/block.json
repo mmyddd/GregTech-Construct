@@ -3,7 +3,7 @@
   "cooling_time": 432,
   "fluid": {
     "amount": 6400,
-    "tag": "tconstruct:amethyst"
+    "tag": "tconstruct:molten_amethyst"
   },
   "result": {
     "tag": "forge:storage_blocks/amethyst"

@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 144,
-    "tag": "forge:lead"
+    "tag": "forge:molten_lead"
   },
   "output": "tconstruct:lead",
   "temperature": 330

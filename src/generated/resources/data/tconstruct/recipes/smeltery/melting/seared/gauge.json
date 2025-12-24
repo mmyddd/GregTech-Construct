@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 720,
-      "fluid": "tconstruct:glass"
+      "fluid": "tconstruct:molten_glass"
     }
   ],
   "ingredient": {

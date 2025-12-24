@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 288,
-      "tag": "forge:copper"
+      "tag": "forge:molten_copper"
     }
   ],
   "ingredient": {
@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 1600,
-    "fluid": "tconstruct:amethyst"
+    "fluid": "tconstruct:molten_amethyst"
   },
   "temperature": 950,
   "time": 216

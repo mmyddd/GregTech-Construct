@@ -14,7 +14,6 @@ dependencies {
 
     modCompileOnly("blusunrize.immersiveengineering:ImmersiveEngineering:${minecraft_version}-${ie_version}")
     modRuntimeOnly("curse.maven:MoonlightLib-499980:6000197")
-    modRuntimeOnly("curse.maven:MmmMmmMmmMmm-225738:5737040")
 
     modCompileOnly("curse.maven:diet-443570:4813904")
 
@@ -22,6 +21,7 @@ dependencies {
     modImplementation("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false }
     modImplementation("com.tterrag.registrate:Registrate:${registrate_version}")
     modImplementation("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
+    modImplementation("curse.maven:MmmMmmMmmMmm-225738:5737040")
 
     modCompileOnly("dev.gigaherz.jsonthings:JsonThings-${minecraft_version}:${json_things_version}")
 

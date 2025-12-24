@@ -9,7 +9,7 @@
   "cooling_time": 190,
   "fluid": {
     "amount": 1600,
-    "tag": "tconstruct:porcelain"
+    "tag": "tconstruct:molten_porcelain"
   },
   "result": "ceramics:white_porcelain"
 }

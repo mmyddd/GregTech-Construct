@@ -41,7 +41,7 @@ public class ConfigurationDataProvider extends GenericDataProvider {
       ItemPredicate.tag(TinkerTags.Items.MODIFIABLE),
       ItemPredicate.tag(TinkerTags.Items.BOOKS),
       ItemPredicate.tag(Tags.Items.DYES),
-      TinkerPredicate.HAS_CONTAINER
+      ItemPredicate.HAS_CONTAINER
     ).inverted());
     item(meltingRecipes, "inputs", ItemPredicate.ANY);
     item(meltingRecipes, "ignore", ItemPredicate.ANY);
@@ -69,6 +69,7 @@ public class ConfigurationDataProvider extends GenericDataProvider {
         ItemPredicate.tag(Tags.Items.TOOLS_SHIELDS),
         ItemPredicate.tag(Tags.Items.TOOLS_BOWS),
         ItemPredicate.tag(Tags.Items.TOOLS_CROSSBOWS),
+        ItemPredicate.tag(Tags.Items.TOOLS_FISHING_RODS),
         ItemPredicate.tag(Tags.Items.ARMORS),
         ItemPredicate.set(Items.FLINT_AND_STEEL, Items.SHEARS, Items.BRUSH)
       ),

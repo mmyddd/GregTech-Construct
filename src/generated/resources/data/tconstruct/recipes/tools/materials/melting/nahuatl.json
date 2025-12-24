@@ -2,8 +2,8 @@
   "type": "tconstruct:material_melting",
   "input": "tconstruct:nahuatl",
   "result": {
-    "amount": 144,
-    "fluid": "tconstruct:obsidian"
+    "amount": 36,
+    "fluid": "tconstruct:molten_obsidian"
   },
   "temperature": 1000
 }

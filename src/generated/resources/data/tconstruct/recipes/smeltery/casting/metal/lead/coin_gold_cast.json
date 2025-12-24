@@ -12,7 +12,7 @@
   "cooling_time": 25,
   "fluid": {
     "amount": 48,
-    "tag": "forge:lead"
+    "tag": "forge:molten_lead"
   },
   "result": {
     "tag": "forge:coins/lead"

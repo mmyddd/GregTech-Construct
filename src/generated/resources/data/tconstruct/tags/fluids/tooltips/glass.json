@@ -1,7 +1,7 @@
 {
   "values": [
-    "#tconstruct:glass",
+    "#tconstruct:molten_glass",
     "#tconstruct:liquid_soul",
-    "#tconstruct:obsidian"
+    "#tconstruct:molten_obsidian"
   ]
 }

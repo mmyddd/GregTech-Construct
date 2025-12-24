@@ -4,7 +4,7 @@
     {
       "amount": 864,
       "rate": "metal",
-      "tag": "forge:iron"
+      "tag": "forge:molten_iron"
     }
   ],
   "conditions": [
@@ -30,7 +30,7 @@
   "rate": "metal",
   "result": {
     "amount": 864,
-    "tag": "forge:nickel"
+    "tag": "forge:molten_nickel"
   },
   "temperature": 950,
   "time": 292

@@ -13,7 +13,7 @@
   "cooling_time": 56,
   "fluid": {
     "amount": 108,
-    "tag": "forge:steel"
+    "tag": "forge:molten_steel"
   },
   "result": {
     "tag": "forge:rods/steel"

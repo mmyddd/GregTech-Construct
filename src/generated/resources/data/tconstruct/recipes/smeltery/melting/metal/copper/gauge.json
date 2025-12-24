@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 7,
-      "fluid": "tconstruct:glass"
+      "fluid": "tconstruct:molten_glass"
     }
   ],
   "ingredient": {
@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 144,
-    "tag": "forge:copper"
+    "tag": "forge:molten_copper"
   },
   "temperature": 500,
   "time": 50

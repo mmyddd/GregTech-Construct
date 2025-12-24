@@ -7,7 +7,7 @@
   "cooling_time": 80,
   "fluid": {
     "amount": 400,
-    "tag": "tconstruct:clay"
+    "tag": "tconstruct:molten_clay"
   },
   "result": "tconstruct:seared_bricks_slab"
 }

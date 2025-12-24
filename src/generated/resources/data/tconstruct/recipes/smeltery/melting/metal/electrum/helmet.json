@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 720,
-    "tag": "forge:electrum",
+    "tag": "forge:molten_electrum",
     "unit_size": 16
   },
   "temperature": 760,

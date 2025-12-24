@@ -23,7 +23,7 @@
           {
             "amount": 864,
             "rate": "metal",
-            "tag": "forge:lead"
+            "tag": "forge:molten_lead"
           }
         ],
         "ingredient": {
@@ -40,7 +40,7 @@
         "rate": "metal",
         "result": {
           "amount": 864,
-          "tag": "forge:uranium"
+          "tag": "forge:molten_uranium"
         },
         "temperature": 830,
         "time": 275
@@ -58,7 +58,7 @@
           {
             "amount": 864,
             "rate": "metal",
-            "tag": "forge:copper"
+            "tag": "forge:molten_copper"
           }
         ],
         "ingredient": {
@@ -75,7 +75,7 @@
         "rate": "metal",
         "result": {
           "amount": 864,
-          "tag": "forge:uranium"
+          "tag": "forge:molten_uranium"
         },
         "temperature": 830,
         "time": 275

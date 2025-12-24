@@ -7,7 +7,7 @@
     },
     {
       "amount": 8000,
-      "fluid": "tconstruct:quartz"
+      "fluid": "tconstruct:molten_quartz"
     }
   ],
   "ingredient": {
@@ -15,7 +15,7 @@
   },
   "result": {
     "amount": 720,
-    "tag": "forge:cobalt"
+    "tag": "forge:molten_cobalt"
   },
   "temperature": 950,
   "time": 227

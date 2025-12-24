@@ -3,11 +3,11 @@
   "byproducts": [
     {
       "amount": 36,
-      "fluid": "tconstruct:glass"
+      "fluid": "tconstruct:molten_glass"
     },
     {
       "amount": 48,
-      "tag": "forge:iron"
+      "tag": "forge:molten_iron"
     }
   ],
   "ingredient": {

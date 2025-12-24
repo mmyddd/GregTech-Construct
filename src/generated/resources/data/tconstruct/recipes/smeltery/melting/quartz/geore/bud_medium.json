@@ -4,7 +4,7 @@
     {
       "amount": 288,
       "rate": "metal",
-      "tag": "forge:iron"
+      "tag": "forge:molten_iron"
     }
   ],
   "conditions": [
@@ -19,7 +19,7 @@
   "rate": "gem",
   "result": {
     "amount": 3200,
-    "fluid": "tconstruct:quartz"
+    "fluid": "tconstruct:molten_quartz"
   },
   "temperature": 637,
   "time": 82

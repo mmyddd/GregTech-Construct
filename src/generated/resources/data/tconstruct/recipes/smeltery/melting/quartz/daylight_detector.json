@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 432,
-      "fluid": "tconstruct:glass"
+      "fluid": "tconstruct:molten_glass"
     }
   ],
   "ingredient": {
@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 4800,
-    "fluid": "tconstruct:quartz"
+    "fluid": "tconstruct:molten_quartz"
   },
   "temperature": 637,
   "time": 316

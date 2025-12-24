@@ -13,7 +13,7 @@
   "cooling_time": 25,
   "fluid": {
     "amount": 16,
-    "tag": "forge:enderium"
+    "tag": "forge:molten_enderium"
   },
   "result": {
     "tag": "forge:nuggets/enderium"

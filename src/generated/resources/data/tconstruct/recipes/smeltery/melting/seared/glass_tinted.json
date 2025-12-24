@@ -3,11 +3,11 @@
   "byproducts": [
     {
       "amount": 144,
-      "fluid": "tconstruct:glass"
+      "fluid": "tconstruct:molten_glass"
     },
     {
       "amount": 3200,
-      "fluid": "tconstruct:amethyst"
+      "fluid": "tconstruct:molten_amethyst"
     }
   ],
   "ingredient": {

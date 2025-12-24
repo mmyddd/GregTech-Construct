@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 7,
-      "fluid": "tconstruct:glass"
+      "fluid": "tconstruct:molten_glass"
     }
   ],
   "ingredient": {
@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 36,
-    "fluid": "tconstruct:obsidian"
+    "fluid": "tconstruct:molten_obsidian"
   },
   "temperature": 1000,
   "time": 166

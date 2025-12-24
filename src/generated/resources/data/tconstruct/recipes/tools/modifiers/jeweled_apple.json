@@ -7,7 +7,7 @@
   "cooling_time": 372,
   "fluid": {
     "amount": 3200,
-    "tag": "tconstruct:diamond"
+    "tag": "tconstruct:molten_diamond"
   },
   "result": "tconstruct:jeweled_apple"
 }

@@ -7,7 +7,7 @@
   "cooling_time": 183,
   "fluid": {
     "amount": 1600,
-    "tag": "tconstruct:quartz"
+    "tag": "tconstruct:molten_quartz"
   },
   "result": "minecraft:granite"
 }

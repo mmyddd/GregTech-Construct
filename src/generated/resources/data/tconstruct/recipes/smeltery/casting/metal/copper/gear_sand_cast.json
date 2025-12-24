@@ -13,7 +13,7 @@
   "cooling_time": 158,
   "fluid": {
     "amount": 1440,
-    "tag": "forge:copper"
+    "tag": "forge:molten_copper"
   },
   "result": {
     "tag": "forge:gears/copper"

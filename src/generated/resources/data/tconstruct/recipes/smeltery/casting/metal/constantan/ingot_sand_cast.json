@@ -13,7 +13,7 @@
   "cooling_time": 64,
   "fluid": {
     "amount": 144,
-    "tag": "forge:constantan"
+    "tag": "forge:molten_constantan"
   },
   "result": {
     "tag": "forge:ingots/constantan"

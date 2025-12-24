@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 3200,
-      "fluid": "tconstruct:quartz"
+      "fluid": "tconstruct:molten_quartz"
     }
   ],
   "ingredient": {
@@ -12,7 +12,7 @@
   "rate": "gem",
   "result": {
     "amount": 3200,
-    "fluid": "tconstruct:amethyst"
+    "fluid": "tconstruct:molten_amethyst"
   },
   "temperature": 950,
   "time": 130

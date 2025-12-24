@@ -7,7 +7,7 @@
   "cooling_time": 114,
   "fluid": {
     "amount": 576,
-    "tag": "forge:gold"
+    "tag": "forge:molten_gold"
   },
   "result": "minecraft:clock"
 }

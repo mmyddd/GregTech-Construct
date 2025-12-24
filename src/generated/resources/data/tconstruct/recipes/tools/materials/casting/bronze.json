@@ -17,7 +17,7 @@
   ],
   "fluid": {
     "amount": 144,
-    "tag": "forge:bronze"
+    "tag": "forge:molten_bronze"
   },
   "output": "tconstruct:bronze",
   "temperature": 700

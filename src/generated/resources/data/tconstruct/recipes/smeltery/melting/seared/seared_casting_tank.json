@@ -7,7 +7,7 @@
     },
     {
       "amount": 432,
-      "fluid": "tconstruct:glass"
+      "fluid": "tconstruct:molten_glass"
     }
   ],
   "ingredient": {
@@ -16,7 +16,7 @@
   },
   "result": {
     "amount": 288,
-    "tag": "forge:copper"
+    "tag": "forge:molten_copper"
   },
   "temperature": 500,
   "time": 125

@@ -4,7 +4,7 @@
     {
       "amount": 48,
       "rate": "metal",
-      "tag": "forge:gold"
+      "tag": "forge:molten_gold"
     }
   ],
   "ingredient": {
@@ -13,7 +13,7 @@
   "rate": "metal",
   "result": {
     "amount": 144,
-    "tag": "forge:copper"
+    "tag": "forge:molten_copper"
   },
   "temperature": 500,
   "time": 75

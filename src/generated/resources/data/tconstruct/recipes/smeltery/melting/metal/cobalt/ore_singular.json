@@ -3,7 +3,7 @@
   "byproducts": [
     {
       "amount": 800,
-      "fluid": "tconstruct:diamond",
+      "fluid": "tconstruct:molten_diamond",
       "rate": "gem"
     }
   ],
@@ -26,7 +26,7 @@
   "rate": "metal",
   "result": {
     "amount": 288,
-    "tag": "forge:cobalt"
+    "tag": "forge:molten_cobalt"
   },
   "temperature": 950,
   "time": 162

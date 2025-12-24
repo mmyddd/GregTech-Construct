@@ -21,7 +21,7 @@
   ],
   "fluid": {
     "amount": 144,
-    "tag": "forge:pewter"
+    "tag": "forge:molten_pewter"
   },
   "output": "tconstruct:pewter",
   "temperature": 400

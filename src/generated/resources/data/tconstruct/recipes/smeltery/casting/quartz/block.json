@@ -3,7 +3,7 @@
   "cooling_time": 365,
   "fluid": {
     "amount": 6400,
-    "tag": "tconstruct:quartz"
+    "tag": "tconstruct:molten_quartz"
   },
   "result": {
     "tag": "forge:storage_blocks/quartz"
