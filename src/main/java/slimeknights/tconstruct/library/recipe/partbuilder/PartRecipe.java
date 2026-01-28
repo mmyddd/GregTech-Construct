@@ -3,7 +3,6 @@ package slimeknights.tconstruct.library.recipe.partbuilder;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.experimental.Accessors;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -61,8 +60,6 @@ public class PartRecipe implements IPartBuilderRecipe, IMultiRecipe<IDisplayPart
   @Getter
   protected final int cost;
   /** If true, this recipe can craft items normally not craftable in the part builder */
-  @Getter
-  @Accessors(fluent = true)
   protected final boolean allowUncraftable;
   /** Recipe result, used to fetch a material */
   protected final IMaterialItem output;

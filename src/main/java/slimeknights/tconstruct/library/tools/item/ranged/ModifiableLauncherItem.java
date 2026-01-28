@@ -32,6 +32,7 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.common.config.Config;
 import slimeknights.tconstruct.library.client.item.ModifiableItemClientExtension;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -103,12 +104,12 @@ public abstract class ModifiableLauncherItem extends ProjectileWeaponItem implem
 
   @Override
   public boolean isEnchantable(ItemStack stack) {
-    return false;
+    return Config.COMMON.isEnhanceAble.get();
   }
 
   @Override
   public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-    return false;
+    return Config.COMMON.isEnhanceAble.get();
   }
 
   @Override

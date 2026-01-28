@@ -9,7 +9,6 @@ import lombok.extern.log4j.Log4j2;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.GsonHelper;
-import org.apache.logging.log4j.Level;
 import slimeknights.mantle.data.listener.MergingJsonDataLoader;
 import slimeknights.mantle.data.registry.IdAwareComponentRegistry;
 import slimeknights.mantle.util.JsonHelper;
@@ -19,6 +18,7 @@ import slimeknights.tconstruct.library.materials.json.MaterialStatJson;
 import slimeknights.tconstruct.library.utils.Util;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -157,13 +157,12 @@ public class MaterialStatsManager extends MergingJsonDataLoader<Map<ResourceLoca
     materialToStatsPerType = map.entrySet().stream()
                                 .collect(Collectors.toMap(
                                   entry -> new MaterialId(entry.getKey()),
-                                  entry -> deserializeMaterialStatsFromContent(entry.getKey(), entry.getValue())));
+                                  entry -> deserializeMaterialStatsFromContent(entry.getValue())));
 
     log.debug("Loaded stats for materials:{}",
               Util.toIndentedStringList(materialToStatsPerType.entrySet().stream()
-                .sorted(Entry.comparingByKey())
-                .map(entry -> String.format("%s - [%s]", entry.getKey(), entry.getValue().keySet().stream().sorted().map(Object::toString).collect(Collectors.joining(", "))))
-                .collect(Collectors.toList())));
+                                                              .map(entry -> String.format("%s - %s", entry.getKey(), Arrays.toString(entry.getValue().keySet().toArray())))
+                                                              .collect(Collectors.toList())));
     onLoaded.run();
   }
 
@@ -172,7 +171,7 @@ public class MaterialStatsManager extends MergingJsonDataLoader<Map<ResourceLoca
     long time = System.nanoTime();
     super.onResourceManagerReload(manager);
     log.info("{} stats loaded for {} materials in {} ms",
-             materialToStatsPerType.values().stream().mapToInt(Map::size).sum(),
+             materialToStatsPerType.values().stream().mapToInt(stats -> stats.keySet().size()).sum(),
              materialToStatsPerType.size(), (System.nanoTime() - time) / 1000000f);
   }
 
@@ -191,29 +190,19 @@ public class MaterialStatsManager extends MergingJsonDataLoader<Map<ResourceLoca
 
   /**
    * Builds a map of stat IDs and stat contents into material stats
-   *
-   * @param id          Material ID
-   * @param contentsMap Contents of the JSON
-   * @return Stats map
+   * @param contentsMap  Contents of the JSON
+   * @return  Stats map
    */
-  private Map<MaterialStatsId, IMaterialStats> deserializeMaterialStatsFromContent(ResourceLocation id, Map<ResourceLocation, JsonObject> contentsMap) {
+  private Map<MaterialStatsId, IMaterialStats> deserializeMaterialStatsFromContent(Map<ResourceLocation, JsonObject> contentsMap) {
     ImmutableMap.Builder<MaterialStatsId, IMaterialStats> builder = ImmutableMap.builder();
     for (Entry<ResourceLocation, JsonObject> entry : contentsMap.entrySet()) {
       MaterialStatsId statType = new MaterialStatsId(entry.getKey());
-      JsonObject json = entry.getValue();
       MaterialStatType<?> type = getStatType(statType);
       if (type == null) {
-        try {
-          boolean optional = GsonHelper.getAsBoolean(json, "optional", false);
-          log.log(optional ? Level.DEBUG : Level.ERROR, "Skipping unregistered material stat type '{}' for material '{}'. {}", statType, id, optional
-            ? "It was marked as optional, so it is likely disabled compatability."
-            : "This likely indicates a broken mod or datapack.");
-        } catch (JsonSyntaxException e) {
-          log.error("Failed to parse optional status for missing stat type '{}' on material '{}'", statType, id, e);
-        }
+        log.error("The material stat of type '" + statType + "' has not been registered");
         continue;
       }
-      builder.put(statType, type.getLoadable().deserialize(json, TypedMapBuilder.builder().put(MaterialStatType.CONTEXT_KEY, type).build()));
+      builder.put(statType, type.getLoadable().deserialize(entry.getValue(), TypedMapBuilder.builder().put(MaterialStatType.CONTEXT_KEY, type).build()));
     }
     return builder.build();
   }

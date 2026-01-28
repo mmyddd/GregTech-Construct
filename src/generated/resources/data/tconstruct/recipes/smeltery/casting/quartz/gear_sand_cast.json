@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/gear"
+  },
+  "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:gears/quartz"
+    }
+  ],
+  "cooling_time": 577,
+  "fluid": {
+    "amount": 16000,
+    "tag": "tconstruct:quartz"
+  },
+  "result": {
+    "tag": "forge:gears/quartz"
+  }
+}

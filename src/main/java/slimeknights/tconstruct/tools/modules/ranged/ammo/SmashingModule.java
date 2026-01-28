@@ -334,15 +334,19 @@ public enum SmashingModule implements ModifierModule, FluidModifierHook, Project
               clearFluid(persistentData);
             }
             projectile.playSound(SoundEvents.SPLASH_POTION_BREAK);
-            // mark as used to prevent it from dropping later
-            persistentData.putBoolean(KEY_USED, true);
+            // mark as used to prevent arrow pickup later
+            if (projectile instanceof AbstractArrow) {
+              persistentData.putBoolean(KEY_USED, true);
+            } else {
+              projectile.discard();
+            }
           }
         }
       } else {
         clearFluid(persistentData);
       }
     }
-    return false;
+    return projectile.isRemoved();
   }
 
   @Override

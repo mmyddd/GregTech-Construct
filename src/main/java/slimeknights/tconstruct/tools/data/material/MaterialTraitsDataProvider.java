@@ -36,8 +36,7 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
     addTraits(MaterialIds.bone, AMMO, ModifierIds.spike);
     addDefaultTraits(MaterialIds.bamboo, ModifierIds.unburdened);
     addTraits(MaterialIds.bamboo, AMMO, ModifierIds.woodwind);
-    addDefaultTraits(MaterialIds.cactus, ModifierIds.spiny);
-    addTraits(MaterialIds.cactus, ARMOR, ModifierIds.thorns);
+    addDefaultTraits(MaterialIds.cactus, ModifierIds.thorns);
     addTraits(MaterialIds.wool, AMMO, ModifierIds.soft);
     noTraits(MaterialIds.feather);
     addTraits(MaterialIds.paper, AMMO, ModifierIds.weak);

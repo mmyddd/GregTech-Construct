@@ -18,19 +18,15 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.ItemStackHandler;
 import slimeknights.mantle.fluid.FluidTransferHelper;
 import slimeknights.mantle.fluid.transfer.IFluidContainerTransfer.TransferDirection;
 import slimeknights.mantle.fluid.transfer.IFluidContainerTransfer.TransferResult;
 import slimeknights.mantle.inventory.EmptyItemHandler;
 import slimeknights.mantle.inventory.SmartItemHandlerSlot;
-import slimeknights.tconstruct.common.TinkerTags;
-import slimeknights.tconstruct.common.config.Config.ToolSyncType;
 import slimeknights.tconstruct.common.network.TinkerNetwork;
 import slimeknights.tconstruct.library.fluid.SimpleFluidTank;
 import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
 import slimeknights.tconstruct.library.tools.capability.inventory.ToolInventoryCapability;
-import slimeknights.tconstruct.library.tools.capability.inventory.ToolInventoryCapability.CraftingType;
 import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
@@ -84,53 +80,16 @@ public class ToolContainerMenu extends AbstractContainerMenu {
     this(TinkerTools.toolContainer.get(), id, playerInventory, stack, itemHandler, slotIndex);
   }
 
-  // TODO 1.21: probably ditch this constructor
-  protected ToolContainerMenu(@Nullable MenuType<?> type, int id, Inventory playerInventory, ItemStack stack, IItemHandler handler, int slotIndex) {
-    this(type, id, playerInventory, stack, handler, slotIndex, CraftingType.fromStack(stack), ModifierUtil.checkVolatileFlag(stack, ToolInventoryCapability.INCLUDE_OFFHAND));
-  }
-
   /** Creates a new instance of this container on the client side */
   public static ToolContainerMenu forClient(int id, Inventory inventory, FriendlyByteBuf buffer) {
     int slotIndex = buffer.readVarInt();
-    ToolSyncType syncType = buffer.readEnum(ToolSyncType.class);
-    // when syncing the full stack, overwrite the spot in the inventory
-    ItemStack stack;
-    if (syncType == ToolSyncType.FULL_STACK) {
-      stack = buffer.readItem();
-      inventory.setItem(slotIndex, stack);
-    } else {
-      stack = inventory.getItem(slotIndex);
-    }
-
-    // with minimal syncing, key details will be in the packet
-    CraftingType craftingType;
-    boolean includeOffhand;
-    int size;
-    if (syncType == ToolSyncType.MINIMAL) {
-      size = buffer.readVarInt();
-      craftingType = buffer.readEnum(CraftingType.class);
-      includeOffhand = buffer.readBoolean();
-    } else {
-      size = ModifierUtil.getVolatileInt(stack, ToolInventoryCapability.TOTAL_SLOTS);
-      craftingType = CraftingType.fromStack(stack);
-      includeOffhand = ModifierUtil.checkVolatileFlag(stack, ToolInventoryCapability.INCLUDE_OFFHAND);
-    }
-    // if the stack looks like it could be our tool, fetch the handler from it
-    IItemHandler handler;
-    if (stack.hasTag() && stack.is(TinkerTags.Items.MODIFIABLE)) {
-      handler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).filter(cap -> cap instanceof IItemHandlerModifiable).orElse(EmptyItemHandler.INSTANCE);
-      // wrong number of slots means something went wrong, use a dummy
-      if (handler.getSlots() != size) {
-        handler = new ItemStackHandler(size);
-      }
-    } else {
-      // stack doesn't look right? use a dummy
-      handler = new ItemStackHandler(size);
-    }
-    return new ToolContainerMenu(TinkerTools.toolContainer.get(), id, inventory, stack, handler, slotIndex, craftingType, includeOffhand);
+    ItemStack stack = buffer.readItem();
+    inventory.setItem(slotIndex, stack);
+    IItemHandler handler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).filter(cap -> cap instanceof IItemHandlerModifiable).orElse(EmptyItemHandler.INSTANCE);
+    return new ToolContainerMenu(TinkerTools.toolContainer.get(), id, inventory, stack, handler, slotIndex);
   }
 
-  protected ToolContainerMenu(@Nullable MenuType<?> type, int id, Inventory playerInventory, ItemStack stack, IItemHandler handler, int slotIndex, CraftingType craftingType, boolean includeOffhand) {
+  protected ToolContainerMenu(@Nullable MenuType<?> type, int id, Inventory playerInventory, ItemStack stack, IItemHandler handler, int slotIndex) {
     super(type, id);
     this.stack = stack;
     this.tool = ToolStack.from(stack);
@@ -142,7 +101,7 @@ public class ToolContainerMenu extends AbstractContainerMenu {
     // if requested, add 3x3 crafting area
     int slots = itemHandler.getSlots();
     int craftingOffset = (slots == 0 ? REPEAT_BACKGROUND_START : UI_START) + 1;
-    if (craftingType == CraftingType.FULL) {
+    if (ModifierUtil.checkVolatileFlag(stack, ToolInventoryCapability.CRAFTING_TABLE)) {
       this.craftingContainer = new TransientCraftingContainer(this, 3, 3);
       this.resultContainer = new ResultContainer();
       this.addSlot(new ResultSlot(this.player, this.craftingContainer, resultContainer, 0, 124, craftingOffset + 18));
@@ -152,7 +111,7 @@ public class ToolContainerMenu extends AbstractContainerMenu {
         }
       }
       // if no 3x3, check if 2x2 was requested
-    } else if (craftingType == CraftingType.INVENTORY) {
+    } else if (ModifierUtil.checkVolatileFlag(stack, ToolInventoryCapability.INVENTORY_CRAFTING)) {
       this.craftingContainer = new TransientCraftingContainer(this, 2, 2);
       this.resultContainer = new ResultContainer();
       this.addSlot(new ResultSlot(this.player, this.craftingContainer, resultContainer, 0, 108, craftingOffset + 10));
@@ -173,7 +132,7 @@ public class ToolContainerMenu extends AbstractContainerMenu {
       this.addSlot(new ToolContainerSlot(itemHandler, i, 8 + (i % 9) * SLOT_SIZE, yOffset + (i / 9) * SLOT_SIZE));
     }
     // add offhand if requested
-    this.showOffhand = includeOffhand;
+    this.showOffhand = ModifierUtil.checkVolatileFlag(stack, ToolInventoryCapability.INCLUDE_OFFHAND);
     if (this.showOffhand) {
       int x = 8 + (slots % 9) * SLOT_SIZE;
       int y = yOffset + (slots / 9) * SLOT_SIZE;

@@ -5,9 +5,9 @@
     "data": "exploration/index.json"
   },
   {
-    "name": "steel_shard",
+    "name": "grass_seeds",
     "type": "mantle:showcase",
-    "data": "exploration/steel_shard.json"
+    "data": "exploration/grass_seeds.json"
   },
   {
     "name": "necrotic_bones",
@@ -15,26 +15,20 @@
     "data": "exploration/necrotic_bones.json"
   },
   {
-    "name": "cobalt_ore",
+    "name": "steel_shard",
     "type": "mantle:showcase",
-    "data": "exploration/cobalt_ore.json"
-  },
-  {
-    "name": "cobalt_shard",
-    "type": "mantle:showcase",
-    "data": "exploration/cobalt_shard.json"
-  },
-  {
-    "name": "dragon_scales",
-    "type": "mantle:showcase",
-    "data": "exploration/dragon_scales.json"
+    "data": "exploration/steel_shard.json"
   },
   {
     "name": "knightmetal_shard",
     "type": "mantle:showcase",
     "data": "exploration/knightmetal_shard.json"
   },
-
+  {
+    "name": "dragon_scales",
+    "type": "mantle:showcase",
+    "data": "exploration/dragon_scales.json"
+  },
   {
     "name": "skyslime_island",
     "type": "mantle:image_text",
@@ -60,12 +54,6 @@
     "type": "mantle:image_text",
     "data": "exploration/island/enderslime.json"
   },
-  {
-    "name": "grass_seeds",
-    "type": "mantle:showcase",
-    "data": "exploration/grass_seeds.json"
-  },
-
   {
     "name": "skyslime_geode",
     "type": "mantle:image_text",

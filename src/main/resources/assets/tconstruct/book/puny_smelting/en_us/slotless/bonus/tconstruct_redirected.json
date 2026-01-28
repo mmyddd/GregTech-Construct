@@ -7,7 +7,6 @@
   ],
   "effects": [
     "Copies the head trait",
-    "Single level",
-    "Slotless"
+    "Single level"
   ]
 }

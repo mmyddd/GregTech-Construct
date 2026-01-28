@@ -4,6 +4,7 @@ import com.google.common.collect.Streams;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import slimeknights.mantle.data.loadable.field.ContextKey;
@@ -13,11 +14,11 @@ import slimeknights.mantle.recipe.ingredient.SizedIngredient;
 import slimeknights.tconstruct.library.json.IntRange;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierId;
-import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
 import slimeknights.tconstruct.library.recipe.RecipeResult;
 import slimeknights.tconstruct.library.recipe.tinkerstation.ITinkerStationContainer;
 import slimeknights.tconstruct.library.tools.SlotType.SlotCount;
 import slimeknights.tconstruct.library.tools.nbt.LazyToolStack;
+import slimeknights.tconstruct.library.tools.nbt.ToolDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 
@@ -45,18 +46,8 @@ public class MultilevelModifierRecipe extends ModifierRecipe implements IMultiRe
 
   private final List<LevelEntry> levels;
   protected MultilevelModifierRecipe(ResourceLocation id, List<SizedIngredient> inputs, Ingredient toolRequirement, int maxToolSize, ModifierId result, boolean allowCrystal, List<LevelEntry> levels, boolean checkTraitLevel) {
-    super(id, inputs, toolRequirement, maxToolSize, result, levels.get(0).level, levels.get(0).slots, allowCrystal, checkTraitLevel);
+    super(id, inputs, toolRequirement, maxToolSize, result, levels.get(0).level, levels.get(0).slots(), allowCrystal, checkTraitLevel);
     this.levels = levels;
-  }
-
-  /** Gets the error for the level being out of range for this recipe. */
-  public static RecipeResult<LazyToolStack> missingLevelError(List<LevelEntry> levels, int newLevel, LazyModifier result, boolean checkTraitLevel) {
-    // if the level is below the minimum, then display a different error
-    int min = levels.get(0).level.min();
-    if (newLevel < min) {
-      return RecipeResult.failure(checkTraitLevel ? KEY_MIN_LEVEL_TRAITS : KEY_MIN_LEVEL, result.get().getDisplayName(min - 1));
-    }
-    return RecipeResult.failure(checkTraitLevel ? KEY_MAX_LEVEL_TRAITS : KEY_MAX_LEVEL, result.get().getDisplayName(), levels.get(levels.size() - 1).level.max());
   }
 
   @Override
@@ -64,11 +55,22 @@ public class MultilevelModifierRecipe extends ModifierRecipe implements IMultiRe
     ToolStack tool = inv.getTinkerable();
 
     // next few checks depend on the current level to decide
-    int newLevel = getNewLevel(tool);
-    LevelEntry levelEntry = LevelEntry.find(levels, newLevel);
+    int newLevel = (checkTraitLevel ? tool.getModifiers() : tool.getUpgrades()).getLevel(result.getId()) + 1;
+    LevelEntry levelEntry = null;
+    for (LevelEntry check : levels) {
+      if (check.matches(newLevel)) {
+        levelEntry = check;
+        break;
+      }
+    }
     // no entry means our level is above the max, so done now
     if (levelEntry == null) {
-      return missingLevelError(levels, newLevel, result, checkTraitLevel);
+      // if the level is below the minimum, then display a different error
+      int min = levels.get(0).level.min();
+      if (newLevel < min) {
+        return RecipeResult.failure(KEY_MIN_LEVEL, result.get().getDisplayName(min - 1));
+      }
+      return RecipeResult.failure(KEY_MAX_LEVEL, result.get().getDisplayName(), levels.get(levels.size() - 1).level.max());
     }
 
     // found our level entry, time to validate slots
@@ -80,8 +82,9 @@ public class MultilevelModifierRecipe extends ModifierRecipe implements IMultiRe
 
     // consume slots
     tool = tool.copy();
+    ToolDataNBT persistentData = tool.getPersistentData();
     if (slots != null) {
-      tool.getPersistentData().addSlots(slots.type(), -slots.count());
+      persistentData.addSlots(slots.type(), -slots.count());
     }
 
     // add modifier
@@ -94,6 +97,7 @@ public class MultilevelModifierRecipe extends ModifierRecipe implements IMultiRe
     }
     return success(tool, inv);
   }
+
 
   @Override
   public RecipeSerializer<?> getSerializer() {
@@ -113,13 +117,14 @@ public class MultilevelModifierRecipe extends ModifierRecipe implements IMultiRe
     }
     if (displayRecipes == null) {
       // this instance is a proper display recipe for the first level entry, for the rest build display instances with unique requirements keys
-      DisplayModifierRecipe.Builder builder = DisplayModifierRecipe.builder().id(getId()).ingredients(inputs).resultSlots(getResultSlots())
-        .toolWithoutModifier(getToolWithoutModifier()).toolWithModifier(getToolWithModifier());
+      List<ItemStack> toolWithoutModifier = getToolWithoutModifier();
+      List<ItemStack> toolWithModifier = getToolWithModifier();
+      List<SlotCount> resultSlots = getResultSlots();
+      ModifierEntry result = getDisplayResult();
+      ResourceLocation id = getId();
       displayRecipes = Streams.concat(
         Stream.of(this),
-        levels.stream().skip(1).map(levelEntry -> builder.copy()
-          .result(new ModifierEntry(result, levelEntry.level.min()))
-          .level(levelEntry.level).slots(levelEntry.slots).build())
+        levels.stream().skip(1).map(levelEntry -> new DisplayModifierRecipe(id, inputs, toolWithoutModifier, toolWithModifier, result, levelEntry.level, levelEntry.slots, resultSlots))
       ).toList();
     }
 
@@ -127,7 +132,7 @@ public class MultilevelModifierRecipe extends ModifierRecipe implements IMultiRe
   }
 
   /** Entry in the levels list */
-  public record LevelEntry(@Nullable SlotCount slots, IntRange level) {
+  record LevelEntry(@Nullable SlotCount slots, IntRange level) {
     public static final RecordLoadable<LevelEntry> LOADABLE = RecordLoadable.create(
       SlotCount.LOADABLE.nullableField("slots", LevelEntry::slots),
       ModifierEntry.VALID_LEVEL.requiredField("level", LevelEntry::level),
@@ -136,17 +141,6 @@ public class MultilevelModifierRecipe extends ModifierRecipe implements IMultiRe
     /** Checks if this entry matches the given level */
     public boolean matches(int level) {
       return this.level.test(level);
-    }
-
-    /** Finds the matching entry in the given list */
-    @Nullable
-    public static LevelEntry find(List<LevelEntry> levels, int newLevel) {
-      for (LevelEntry check : levels) {
-        if (check.matches(newLevel)) {
-          return check;
-        }
-      }
-      return null;
     }
   }
 }
