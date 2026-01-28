@@ -162,6 +162,7 @@ public class ItemTagProvider extends ItemTagsProvider {
     this.tag(TinkerTags.Items.NUGGETS_NETHERITE_SCRAP).add(TinkerMaterials.debrisNugget.get());
 
     this.tag(TinkerTags.Items.STEEL_SHARD).add(TinkerWorld.steelShard.get());
+    this.tag(TinkerTags.Items.COBALT_SHARD).add(TinkerWorld.cobaltShard.get());
     this.tag(TinkerTags.Items.KNIGHTMETAL_SHARD).add(TinkerWorld.knightmetalShard.get());
 
     // ores
@@ -211,9 +212,16 @@ public class ItemTagProvider extends ItemTagsProvider {
     this.tag(ItemTags.PIGLIN_REPELLENTS).add(TinkerWorld.headItems.get(TinkerHeadType.ZOMBIFIED_PIGLIN));
 
     // beacons are happy to accept any expensive ingots
-    this.tag(ItemTags.BEACON_PAYMENT_ITEMS)
-        .addTags(TinkerMaterials.steel.getIngotTag(), TinkerMaterials.cobalt.getIngotTag(), TinkerMaterials.queensSlime.getIngotTag(),
-                 TinkerMaterials.manyullyn.getIngotTag(), TinkerMaterials.hepatizon.getIngotTag(), TinkerMaterials.cinderslime.getIngotTag());
+    // mirrors the block list
+    this.tag(ItemTags.BEACON_PAYMENT_ITEMS).addTags(
+      // ores
+      TinkerMaterials.steel.getIngotTag(), TinkerMaterials.cobalt.getIngotTag(),
+      // tier 3
+      TinkerMaterials.slimesteel.getIngotTag(),
+      // tier 4
+      TinkerMaterials.cinderslime.getIngotTag(), TinkerMaterials.queensSlime.getIngotTag(),
+      TinkerMaterials.manyullyn.getIngotTag(), TinkerMaterials.hepatizon.getIngotTag(),
+      TinkerMaterials.knightmetal.getIngotTag());
 
     this.copy(TinkerTags.Blocks.COPPER_PLATFORMS, TinkerTags.Items.COPPER_PLATFORMS);
 
@@ -649,7 +657,7 @@ public class ItemTagProvider extends ItemTagsProvider {
       .add(2, true, ie.apply("hammer"))
       .crowbar().excavatorSpikeMaul();
     moltenTools(TinkerFluids.moltenGold).minecraft("golden")
-      .add(1, true,  new ResourceLocation("farmers_delight", "golden_knife"))
+      .add(1, true,  new ResourceLocation("farmersdelight", "golden_knife"))
       .add(4, false, new ResourceLocation("golden_boots"))
       .add(4, true,  new ResourceLocation(tf, "gold_minotaur_axe"));
     moltenTools(TinkerFluids.moltenSteel).toolTags().leggingsPaxel().crowbar()

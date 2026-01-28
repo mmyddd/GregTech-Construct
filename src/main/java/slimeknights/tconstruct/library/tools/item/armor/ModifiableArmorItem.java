@@ -32,7 +32,6 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.TConstruct;
-import slimeknights.tconstruct.common.config.Config;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.EnchantmentModifierHook;
@@ -124,12 +123,12 @@ public class ModifiableArmorItem extends ArmorItem implements IModifiableDisplay
 
   @Override
   public boolean isEnchantable(ItemStack stack) {
-    return Config.COMMON.isEnhanceAble.get();
+    return false;
   }
 
   @Override
   public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-    return Config.COMMON.isEnhanceAble.get();
+    return false;
   }
 
   @Override
