@@ -3,6 +3,7 @@ package slimeknights.tconstruct.tools.item;
 import it.unimi.dsi.fastutil.objects.Object2BooleanArrayMap;
 import net.minecraft.tags.TagKey;
 import slimeknights.tconstruct.common.recipe.RecipeCacheInvalidator;
+import slimeknights.tconstruct.library.materials.IMaterialRegistry;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.definition.IMaterial;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
@@ -38,8 +39,11 @@ public class FakeIngotItem extends RepairKitItem {
 
   @Override
   public boolean canUseMaterial(MaterialId material) {
-    return MaterialRegistry.getInstance().isInTag(material, validMaterials)
-      && missingItemCache.computeIfAbsent(material, missingItemGetter);
+    IMaterialRegistry registry = MaterialRegistry.getInstance();
+    if (registry.isInTag(material, validMaterials)) {
+      return missingItemCache.computeIfAbsent(material, missingItemGetter);
+    }
+    return false;
   }
 
   @Override

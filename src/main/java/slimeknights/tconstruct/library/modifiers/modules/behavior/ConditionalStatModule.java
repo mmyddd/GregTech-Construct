@@ -71,7 +71,7 @@ public record ConditionalStatModule(INumericToolStat<?> stat, IJsonPredicate<Liv
 
   @Override
   public float computeTooltipValue(IToolStackView tool, ModifierEntry entry, @Nullable Player player) {
-    return formula.apply(tool, entry, player, 1, tool.getMultiplier(stat));
+    return formula.apply(tool, entry, player, 1, 1);
   }
 
   @Override

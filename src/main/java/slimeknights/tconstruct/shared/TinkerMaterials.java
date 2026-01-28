@@ -15,6 +15,7 @@ import slimeknights.mantle.registration.object.FenceBuildingBlockObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.mantle.registration.object.MetalItemObject;
 import slimeknights.tconstruct.common.TinkerModule;
+import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.json.predicate.material.MaterialDefinitionPredicate;
 import slimeknights.tconstruct.library.json.predicate.material.MaterialHasPartPredicate;
 import slimeknights.tconstruct.library.json.predicate.material.MaterialIdPredicate;
@@ -28,7 +29,6 @@ import slimeknights.tconstruct.shared.block.KnightMetalBlock;
 import slimeknights.tconstruct.shared.block.OrientableBlock;
 import slimeknights.tconstruct.shared.block.SlimesteelBlock;
 import slimeknights.tconstruct.tools.TinkerToolParts;
-import slimeknights.tconstruct.tools.data.material.MaterialIds;
 
 import java.util.function.Consumer;
 
@@ -96,7 +96,7 @@ public final class TinkerMaterials extends TinkerModule {
     // necrotic bone is in world
     output.accept(venombone);
     output.accept(blazingBone);
-    acceptIfMaterial(output, necroniumBone, MaterialIds.necronium);
+    acceptIfTag(output, necroniumBone, TinkerTags.Items.URANIUM_INGOTS);
     accept(output, nahuatl);
     accept(output, blazewood);
 

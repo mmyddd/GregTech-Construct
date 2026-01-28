@@ -218,19 +218,13 @@ public class ThrownTool extends ThrownTrident implements ToolProjectile {
       if (ToolAttackUtil.canPerformAttack(tool) && ToolAttackUtil.isAttackable(owner, target)) {
         // hack: swap the offhand for the tool so any relevant modifier hooks (notably looting) see the right thing
         // does not actually matter which slot we use, just need the tool there to ensure hooks are properly run
-        // skip the hack if attacking ourself, as that might cause it to drop/duplicate. Its not like we need looting on ourself, why are you killing yourself?
         ItemStack offhand = owner.getOffhandItem();
-        boolean notSelf = owner != target;
-        if (notSelf) {
-          owner.setItemInHand(InteractionHand.OFF_HAND, tridentItem);
-        }
+        owner.setItemInHand(InteractionHand.OFF_HAND, tridentItem);
         // TODO: consider whether redundant sound is fine
         if (ToolAttackUtil.performAttack(tool, ToolAttackContext.attacker(owner).target(target).hand(InteractionHand.OFF_HAND).baseDamage(tool.getStats().get(ToolStats.ATTACK_DAMAGE) * multiplier).cooldown(charge).projectile(this).build())) {
           if (target.getType() == EntityType.ENDERMAN && tool.getModifiers().getLevel(TinkerModifiers.enderference.getId()) == 0) {
             // restore held item
-            if (notSelf) {
-              owner.setItemInHand(InteractionHand.OFF_HAND, offhand);
-            }
+            owner.setItemInHand(InteractionHand.OFF_HAND, offhand);
             return;
           }
           if (target instanceof LivingEntity living) {
@@ -239,9 +233,7 @@ public class ThrownTool extends ThrownTrident implements ToolProjectile {
         }
 
         // restore held item
-        if (notSelf) {
-          owner.setItemInHand(InteractionHand.OFF_HAND, offhand);
-        }
+        owner.setItemInHand(InteractionHand.OFF_HAND, offhand);
       }
 
       // back off from the target

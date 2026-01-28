@@ -13,7 +13,6 @@ import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.items.ItemHandlerHelper;
 import slimeknights.mantle.data.loadable.common.IngredientLoadable;
 import slimeknights.mantle.data.loadable.field.ContextKey;
-import slimeknights.mantle.data.loadable.field.LoadableField;
 import slimeknights.mantle.data.loadable.primitive.IntLoadable;
 import slimeknights.mantle.data.loadable.record.RecordLoadable;
 import slimeknights.mantle.recipe.helper.ItemOutput;
@@ -35,25 +34,24 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** Modifier that incrementally fills the entry, allowing partial application. */
 public class IncrementalModifierRecipe extends AbstractModifierRecipe {
-  protected static final LoadableField<Ingredient,IncrementalModifierRecipe> INPUT_FIELD = IngredientLoadable.DISALLOW_EMPTY.requiredField("input", r -> r.input);
-  protected static final LoadableField<Integer,IncrementalModifierRecipe> AMOUNT_FIELD = IntLoadable.FROM_ONE.defaultField("amount_per_item", 1, true, r -> r.amountPerInput);
-  protected static final LoadableField<Integer,IncrementalModifierRecipe> NEEDED_FIELD = IntLoadable.FROM_ONE.requiredField("needed_per_level", r -> r.neededPerLevel);
-  protected static final LoadableField<ItemOutput,IncrementalModifierRecipe> LEFTOVER_FIELD = ItemOutput.Loadable.OPTIONAL_STACK.emptyField("leftover", r -> r.leftover);
   public static final RecordLoadable<IncrementalModifierRecipe> LOADER = RecordLoadable.create(
-    ContextKey.ID.requiredField(), INPUT_FIELD, AMOUNT_FIELD, NEEDED_FIELD,
+    ContextKey.ID.requiredField(),
+    IngredientLoadable.DISALLOW_EMPTY.requiredField("input", r -> r.input),
+    IntLoadable.FROM_ONE.defaultField("amount_per_item", 1, true, r -> r.amountPerInput),
+    IntLoadable.FROM_ONE.requiredField("needed_per_level", r -> r.neededPerLevel),
     TOOLS_FIELD, MAX_TOOL_SIZE_FIELD, RESULT_FIELD, LEVEL_FIELD, SLOTS_FIELD,
-    LEFTOVER_FIELD, ALLOW_CRYSTAL_FIELD, CHECK_TRAIT_LEVEL_FIELD,
+    ItemOutput.Loadable.OPTIONAL_STACK.emptyField("leftover", r -> r.leftover),
+    ALLOW_CRYSTAL_FIELD, CHECK_TRAIT_LEVEL_FIELD,
     IncrementalModifierRecipe::new);
 
 
   /** Input ingredient, size controlled by later integers */
-  protected final Ingredient input;
+  private final Ingredient input;
   /** Number each input item counts as */
-  protected final int amountPerInput;
+  private final int amountPerInput;
   /** Number needed for each level */
-  protected final int neededPerLevel;
+  private final int neededPerLevel;
   /** Item stack to use when a partial amount is leftover */
   private final ItemOutput leftover;
 
@@ -80,11 +78,11 @@ public class IncrementalModifierRecipe extends AbstractModifierRecipe {
 
     // fetch the amount from the modifier, will be 0 if we have a full level
     ModifierId modifier = result.getId();
-    boolean crystal = matchesCrystal(inv);
-    boolean isNewLevel = crystal || tool.getUpgrades().getEntry(modifier).getAmount(0) <= 0;
+    boolean newLevel = tool.getUpgrades().getEntry(modifier).getAmount(0) <= 0;
 
-    // can skip validations if we are not adding a new level
-    if (isNewLevel) {
+    // can skip validations if we are not adding a new level, crystals always add one
+    boolean crystal = matchesCrystal(inv);
+    if (crystal || newLevel) {
       Component commonError = validatePrerequisites(tool);
       if (commonError != null) {
         return RecipeResult.failure(commonError);
@@ -95,7 +93,7 @@ public class IncrementalModifierRecipe extends AbstractModifierRecipe {
     tool = tool.copy();
 
     // if a new level, consume slots now that we copied
-    if (isNewLevel) {
+    if (crystal || newLevel) {
       SlotCount slots = getSlots();
       if (slots != null) {
         tool.getPersistentData().addSlots(slots.type(), -slots.count());
@@ -108,12 +106,6 @@ public class IncrementalModifierRecipe extends AbstractModifierRecipe {
     } else {
       // for adding amount, we just use the convenient helper method, which will automatically stop at max
       tool.addModifierAmount(modifier, getAvailableAmount(inv, input, amountPerInput), neededPerLevel);
-    }
-
-    // ensure no modifier problems
-    Component toolValidation = tool.tryValidate();
-    if (toolValidation != null) {
-      return RecipeResult.failure(toolValidation);
     }
 
     // successfully added the modifier
@@ -168,7 +160,7 @@ public class IncrementalModifierRecipe extends AbstractModifierRecipe {
   private List<List<ItemStack>> slotCache;
 
   /** Gets the list of input stacks for display */
-  protected List<List<ItemStack>> getInputs() {
+  private List<List<ItemStack>> getInputs() {
     if (slotCache == null) {
       ImmutableList.Builder<List<ItemStack>> builder = ImmutableList.builder();
 

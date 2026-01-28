@@ -50,15 +50,12 @@ public class StructureRepalleter extends AbstractStructureRepalleter {
       .addMapping(Blocks.DIRT, TinkerWorld.slimeDirt.get(DirtType.ICHOR))
       .addMapping(Blocks.GRASS_BLOCK, TinkerWorld.ichorSlimeGrass.get(FoliageType.BLOOD)));
     // ender
-    Replacement ender = replacement()
+    repalette(sizes, "islands/ender/", true, replacement()
       .addMapping(Blocks.CLAY, TinkerWorld.slimeDirt.get(DirtType.ENDER))
       .addMapping(Blocks.SAND, TinkerWorld.congealedSlime.get(SlimeType.ENDER))
-      .addMapping(Blocks.WATER, Objects.requireNonNull(TinkerFluids.enderSlime.getBlock()));
-    repalette(sizes, "islands/ender/", true,
-      ender.copy().addMapping(Blocks.DIRT, TinkerWorld.slimeDirt.get(DirtType.ICHOR))
-                  .addMapping(Blocks.GRASS_BLOCK, TinkerWorld.ichorSlimeGrass.get(FoliageType.ENDER)),
-      ender.copy().addMapping(Blocks.DIRT, TinkerWorld.slimeDirt.get(DirtType.ENDER))
-                  .addMapping(Blocks.GRASS_BLOCK, TinkerWorld.enderSlimeGrass.get(FoliageType.ENDER)));
+      .addMapping(Blocks.WATER, Objects.requireNonNull(TinkerFluids.enderSlime.getBlock()))
+      .addMapping(Blocks.DIRT, TinkerWorld.slimeDirt.get(DirtType.ENDER))
+      .addMapping(Blocks.GRASS_BLOCK, TinkerWorld.enderSlimeGrass.get(FoliageType.ENDER)));
   }
 
   /** Replaettes all sizes from the given list */

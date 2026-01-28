@@ -8,7 +8,7 @@
   "effects": [
     "Crude version of netherite",
     "Grants immunity to external damage but no strength increase",
-    "Single Level",
-    "Slotless"
+    "Single Use",
+    "Requires no slot"
   ]
 }

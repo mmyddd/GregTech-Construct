@@ -38,7 +38,7 @@ public record PlaceGlowModule(int damage) implements ModifierModule, DisplayName
 
   @Override
   public Integer getPriority() {
-    return 70;
+    return 75;
   }
 
   @Override

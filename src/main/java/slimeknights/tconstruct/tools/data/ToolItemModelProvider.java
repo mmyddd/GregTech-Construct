@@ -23,7 +23,6 @@ public class ToolItemModelProvider extends AbstractToolItemModelProvider {
   protected void addModels() throws IOException {
     JsonObject toolBlocking = readJson(getResource("base/tool_blocking"));
     JsonObject shieldBlocking = readJson(getResource("base/shield_blocking"));
-    JsonObject flatBlocking = readJson(getResource("base/flat_blocking"));
 
     // blocking //
     // pickaxe
@@ -54,7 +53,7 @@ public class ToolItemModelProvider extends AbstractToolItemModelProvider {
     shield("travelers", TinkerTools.travelersShield, shieldBlocking, "cuirass", "wood");
     shield("plate", TinkerTools.plateShield, readJson(getResource("base/shield_large_blocking")), "plating", "core");
     // misc
-    tool(TinkerTools.flintAndBrick, flatBlocking, "tool");
+    tool(TinkerTools.flintAndBrick, shieldBlocking, "tool");
     // bow
     bow(TinkerTools.longbow, toolBlocking, new LongbowAmmo(new Vec2[] {
       new Vec2(-3, -4), new Vec2(-2, -3), new Vec2(-1, -2)
@@ -71,7 +70,7 @@ public class ToolItemModelProvider extends AbstractToolItemModelProvider {
     staff(TinkerTools.ichorStaff, toolBlocking);
     staff(TinkerTools.enderStaff, toolBlocking);
     // ancient
-    charged(TinkerTools.meltingPan, flatBlocking, "head");
+    charged(TinkerTools.meltingPan, shieldBlocking, "head");
     bow(TinkerTools.warPick, toolBlocking, new CrossbowAmmo(new Vec2(1, -1), false, true), "bowstring");
     tool(TinkerTools.battlesign, null, "head");
     pulling(TinkerTools.swasher, readJson(getResource("tool/swasher/blocking_display")), AmmoType.NONE, "blade", 2, "barrel");

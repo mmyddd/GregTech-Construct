@@ -157,12 +157,12 @@ public class FluidTextureProvider extends AbstractFluidTextureProvider {
 
   /** Creates a texture in the molten using the fluid ID (stripping molten) */
   private FluidTexture.Builder molten(FluidObject<?> fluid) {
-    return named(fluid, "molten/" + withoutMolten(fluid));
+    return named(fluid, withoutMolten(fluid));
   }
 
   /** Creates a texture in given subfolder of molten, stripping molten from the name */
   private FluidTexture.Builder moltenFolder(FluidObject<?> fluid, String folder) {
-    return named(fluid, "molten/" + folder + "/" + withoutMolten(fluid));
+    return named(fluid, folder + "/" + withoutMolten(fluid));
   }
 
   /** Creates a texture in the molten stone folder using the given name */
