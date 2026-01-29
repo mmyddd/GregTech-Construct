@@ -67,8 +67,8 @@ public class GTConstructFluid {
   }
 
   public static String extractMaterialName(String path) {
-    if (path.startsWith("molten_")) {
-      return path.substring("molten_".length()); // 修复：这里应该是 "molten_".length()，原来的代码似乎是空的字符串
+    if (path.startsWith("")) {
+      return path.substring("".length());
     }
     return path;
   }

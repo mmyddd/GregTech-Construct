@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "byproducts": [
+    {
+      "amount": 576,
+      "fluid": "tconstruct:obsidian"
+    }
+  ],
+  "ingredient": {
+    "item": "minecraft:enchanting_table"
+  },
+  "result": {
+    "amount": 3200,
+    "fluid": "tconstruct:diamond"
+  },
+  "temperature": 1450,
+  "time": 372
+}

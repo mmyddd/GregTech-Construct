@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tconstruct:ancient",
+  "result": {
+    "amount": 144,
+    "fluid": "tconstruct:debris"
+  },
+  "temperature": 1175
+}

@@ -58,6 +58,7 @@ public class Config {
     public final BooleanValue forceIntegrationMaterials;
     public final BooleanValue disableSideInventoryWhitelist;
     public final BooleanValue quickApplyToolModifiersSurvival;
+    public final BooleanValue isEnhanceAble;
     public final EnumValue<LogInvalidToolStack> logInvalidToolStack;
     public enum LogInvalidToolStack { STACKTRACE, WARNING, IGNORED }
 
@@ -88,13 +89,16 @@ public class Config {
         .comment("Amount of durability restored by a repair kit in terms of ingots. Does not affect the cost to create the kit, that is controlled by JSON.")
         .defineInRange("repairKitAmount", 2f, 0f, Short.MAX_VALUE);
 
+      this.isEnhanceAble = builder
+        .comment("Allow Tinker's tools can be enhanced")
+        .define("AllowTinkersToolsCanBeEnhanced", false);
+        
       this.toolInventorySync = builder
         .comment("Method of syncing on opening a tool inventory. Options:",
           "FULL_STACK: syncs the entire tool item stack to client. May cause issues with packet size if too many tools are inside the tool, but best for laggy servers.",
           "MINIMAL (default): syncs the minimal info to prevent an inventory desync if the client lost the stack.",
           "DISABLED: syncs nothing. May cause inventory desync issues if the client lost the tool.")
         .defineEnum("toolInventorySync", ToolSyncType.MINIMAL);
-
       builder.pop(); // gameplay
 
       builder.comment("Options related to recipes, limited options as a datapack allows most recipes to be modified").push("recipes");
