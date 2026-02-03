@@ -795,11 +795,11 @@
   "item.tconstruct.molten_tin_bucket": "Balde con Hojalata fundida",
   "fluid.tconstruct.molten_tin.fluid_effect": "Dicen que las zanahorias hacen bien a la vista, pero la Hojalata fundida es mejor.",
 
-  "block.tconstruct.molten_aluminum_fluid": "Aluminio fundido",
-  "fluid.tconstruct.molten_aluminum": "Aluminio fundido",
-  "fluid.tconstruct.flowing_molten_aluminum": "Aluminio fundido fluyendo",
-  "item.tconstruct.molten_aluminum_bucket": "Balde con Aluminio fundido",
-  "fluid.tconstruct.molten_aluminum.fluid_effect": "El Aluminio fundido es como la leche, pero agresivo, ideal para el combate cuando tus oponentes tiene demasiados efectos.",
+  "block.tconstruct.molten_aluminium_fluid": "Aluminio fundido",
+  "fluid.tconstruct.molten_aluminium": "Aluminio fundido",
+  "fluid.tconstruct.flowing_molten_aluminium": "Aluminio fundido fluyendo",
+  "item.tconstruct.molten_aluminium_bucket": "Balde con Aluminio fundido",
+  "fluid.tconstruct.molten_aluminium.fluid_effect": "El Aluminio fundido es como la leche, pero agresivo, ideal para el combate cuando tus oponentes tiene demasiados efectos.",
 
   "block.tconstruct.molten_lead_fluid": "Plomo fundido",
   "fluid.tconstruct.molten_lead": "Plomo fundido",
@@ -2194,16 +2194,16 @@
 
   "material.tconstruct.whitestone": "Piedra del End",
   "material.tconstruct.whitestone.composite": "Piedra blanca",
-  "material.tconstruct.whitestone.aluminum": "Piedra blanca",
+  "material.tconstruct.whitestone.aluminium": "Piedra blanca",
   "material.tconstruct.whitestone.tin": "Piedra blanca",
   "material.tconstruct.whitestone.zinc": "Piedra blanca",
   "material.tconstruct.whitestone.flavor": "Toma tus inútiles metales o piedras blancas para hacer herramientas útiles",
   "material.tconstruct.whitestone.encyclopedia": "Minar piedra tiene una probabilidad del 20% cada nivel de otorgar +3 de Escudo de piedra",
 
-  "material.tconstruct.aluminum": "Aluminio",
-  "material.tconstruct.aluminum.flavor": "Encontrado comúnmente cerca de los ceniceros.",
-  "material.tconstruct.aluminum.ranged": "Otorga +7% de velocidad de carga y precisión con el coste de perder 5% de protección",
-  "material.tconstruct.aluminum.armor": "Otorga +5% velocidad al usar items con el coste de perder 5% de protección",
+  "material.tconstruct.aluminium": "Aluminio",
+  "material.tconstruct.aluminium.flavor": "Encontrado comúnmente cerca de los ceniceros.",
+  "material.tconstruct.aluminium.ranged": "Otorga +7% de velocidad de carga y precisión con el coste de perder 5% de protección",
+  "material.tconstruct.aluminium.armor": "Otorga +5% velocidad al usar items con el coste de perder 5% de protección",
 
   "material.tconstruct.treated_wood": "Madera tratada",
   "material.tconstruct.treated_wood.flavor": "¡Slán go fóill!",
