@@ -77,21 +77,21 @@ public class BlockTagProvider extends BlockTagsProvider {
   private void addCommon() {
     // ores
     addMetalTags(TinkerMaterials.cobalt, true);
-    addMetalTags(TinkerMaterials.steel, false);
+    addMetalTags(TinkerMaterials.steel, true);
     // tier 3
-    addMetalTags(TinkerMaterials.slimesteel, false);
-    addMetalTags(TinkerMaterials.amethystBronze, false);
-    addMetalTags(TinkerMaterials.roseGold, false);
-    addMetalTags(TinkerMaterials.pigIron, false);
+    addMetalTags(TinkerMaterials.slimesteel, true); // beacon: skyslime and seared stone are expensive enough
+    addMetalTags(TinkerMaterials.amethystBronze, false); // not beacon: mostly copper and amethyst
+    addMetalTags(TinkerMaterials.roseGold, false); // not beacon: 50% copper
+    addMetalTags(TinkerMaterials.pigIron, false); // not beacon: 50% food
     // tier 4
-    addMetalTags(TinkerMaterials.cinderslime, false);
+    addMetalTags(TinkerMaterials.cinderslime, true); // beacon: ichor and scorched stone are expensive enough
     addMetalTags(TinkerMaterials.queensSlime, true);
     addMetalTags(TinkerMaterials.manyullyn, true);
     addMetalTags(TinkerMaterials.hepatizon, true);
     addMetalTags(TinkerMaterials.soulsteel, true);
     // tier 5
     addMetalTags(TinkerMaterials.knightmetal, true);
-    addMetalTags(TinkerMaterials.knightslime, false);
+    addMetalTags(TinkerMaterials.knightslime, true);
 
     // glass
     IntrinsicTagAppender<Block> silicaPanes = tag(TinkerTags.Blocks.GLASS_PANES_SILICA);
@@ -467,7 +467,7 @@ public class BlockTagProvider extends BlockTagsProvider {
     tagBlocks(MINEABLE_WITH_AXE, TinkerWorld.skySlimeVine, TinkerWorld.enderSlimeVine, TinkerWorld.enderbarkRoots);
     tagBlocks(MINEABLE_WITH_AXE, TinkerWorld.slimeTallGrass, TinkerWorld.slimeFern);
     tagBlocks(MINEABLE_WITH_PICKAXE, TinkerWorld.earthGeode, TinkerWorld.skyGeode, TinkerWorld.ichorGeode, TinkerWorld.enderGeode);
-    tagBlocks(MINEABLE_WITH_PICKAXE, TinkerWorld.steelCluster, TinkerWorld.knightmetalCluster);
+    tagBlocks(MINEABLE_WITH_PICKAXE, TinkerWorld.steelCluster, TinkerWorld.cobaltCluster, TinkerWorld.knightmetalCluster);
     tagBlocks(NEEDS_DIAMOND_TOOL, TinkerWorld.enderbarkRoots);
     tagBlocks(NEEDS_DIAMOND_TOOL, TinkerWorld.slimyEnderbarkRoots);
 
