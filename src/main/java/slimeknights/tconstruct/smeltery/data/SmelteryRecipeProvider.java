@@ -2298,7 +2298,11 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
     CommonRecipe tfShovel = new ToolItemMelting(1, tf, "shovel");
     metal(consumer, TinkerFluids.moltenSteeleaf).optional().metal()
       .common(AXES, SWORD, tfShovel, tfHelmet, tfChestplate, tfLeggings, tfBoots);
-    // botania manasteel/terrasteel ingot+nugget+block items are owned by botania, do not register tconstruct compat metal forms for manasteel
+    // botania owns manasteel ingot/nugget/block item forms, so only keep melting (no tconstruct casting registration)
+    metal(consumer, TinkerFluids.moltenManaSteel).optional()
+      .melting(9, "block", "storage_blocks", 3.0f, false, false)
+      .melting(1, "ingot", 1.0f, false, false)
+      .melting(1 / 9f, "nugget", 1 / 3f, false, false);
     metal(consumer, TinkerFluids.moltenTerraSteel).optional().metal();
     // fiery doesn't have a molten form, rather its composite the whole way
     fluid(consumer, "fiery", TinkerFluids.fieryLiquid).optional()

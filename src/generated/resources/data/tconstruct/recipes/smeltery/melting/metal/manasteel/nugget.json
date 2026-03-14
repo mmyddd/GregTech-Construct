@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:nuggets/manasteel"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:nuggets/manasteel"
+  },
+  "result": {
+    "amount": 16,
+    "tag": "forge:manasteel"
+  },
+  "temperature": 1100,
+  "time": 24
+}
