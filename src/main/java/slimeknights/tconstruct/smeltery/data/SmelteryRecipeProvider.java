@@ -2300,6 +2300,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
       .common(AXES, SWORD, tfShovel, tfHelmet, tfChestplate, tfLeggings, tfBoots);
     // botania owns manasteel ingot/nugget/block item forms, so only keep melting (no tconstruct casting registration)
     metal(consumer, TinkerFluids.moltenManaSteel).optional()
+      .baseUnit(FluidValues.INGOT).damageUnit(FluidValues.NUGGET)
       .melting(9, "block", "storage_blocks", 3.0f, false, false)
       .melting(1, "ingot", 1.0f, false, false)
       .melting(1 / 9f, "nugget", 1 / 3f, false, false);
